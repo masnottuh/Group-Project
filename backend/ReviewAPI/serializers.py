@@ -1,11 +1,16 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from ReviewAPI.models import Review, Comment, Room
+from ReviewAPI.models import Review, Comment, Room, Book
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username'] 
+
+class BookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ('id', 'title', 'author', 'description','book_cover', 'publisher')
 
 
 class ReviewSerializer(serializers.ModelSerializer):
@@ -37,4 +42,6 @@ from .models import Room
 class RoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Room
-        fields = ('id', 'code', 'host', 'created_at')
+        fields = ['id', 'code', 'host', 'created_at']
+
+

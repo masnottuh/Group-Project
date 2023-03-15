@@ -1,7 +1,7 @@
 from rest_framework import generics
 from ReviewAPI import serializers
 from django.contrib.auth.models import User
-from ReviewAPI.models import Review, Comment, Room
+from ReviewAPI.models import Review, Comment, Room, Book
 from rest_framework import permissions
 from ReviewAPI.permissions import IsOwnerOrReadOnly
 
@@ -45,6 +45,9 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
 
+class BookView(generics.ListAPIView):
+    queryset = Book.objects.all()
+    serializer_class = serializers.BookSerializer
 
 class RoomView(generics.ListAPIView):
     queryset = Room.objects.all()

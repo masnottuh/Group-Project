@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 from ReviewAPI import views
-from .views import RoomView
+from .views import RoomView, BookView
 
 urlpatterns = [
     path('users/', views.UserList.as_view()),
@@ -11,6 +11,7 @@ urlpatterns = [
     path('comments/', views.CommentList.as_view()),
     path('comments/<int:pk>/', views.CommentDetail.as_view()),
     path('room', RoomView.as_view()),
+    path('book', BookView.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
