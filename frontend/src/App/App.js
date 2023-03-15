@@ -3,21 +3,21 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
-import Login from '../Login/Login';
+import Auth from '../Login/Auth';
 import About from '../NavPages/About';
 import Home from '../NavPages/Home'
+import useToken from '../Login/useToken';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
 
 function App() {
 
-  // const { token, setToken } = useToken(); //simple token auth for now
+  const { token, setToken } = useToken(); //simple token auth for now
 
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
+  if(!token) {
+    return <Auth setToken={setToken} />
+  }
 
   return (
     <div className="wrapper">
@@ -40,6 +40,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/auth" element={<Auth/>}/>
           <Route path="/Home" element={<Home/>}/>
           <Route path="/About" element={<About/>}/>
         </Routes>
