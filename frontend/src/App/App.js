@@ -15,9 +15,9 @@ function App() {
 
   const { token, setToken } = useToken(); //simple token auth for now
 
-  if(!token) {
-    return <Auth setToken={setToken} />
-  }
+  // if(!token) {
+  //   return <Auth setToken={setToken} />
+  // }
 
   return (
     <div className="wrapper">
@@ -43,6 +43,7 @@ function App() {
           <Route path="/auth" element={<Auth/>}/>
           <Route path="/Home" element={<Home/>}/>
           <Route path="/About" element={<About/>}/>
+          
         </Routes>
       </Router>
     </div>
