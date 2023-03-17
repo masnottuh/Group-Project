@@ -79,3 +79,21 @@ label {
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
+ .books-block {
+  justify-content: center;
+
+} 
+.book_format {
+  justify-content: center;
+  border-left: 50rem;
+  /* width: 420px;  */
+  /* flex-direction: column; */
+  } 
+  .carousel-inner {
+    justify-content: center;
+    width: 20rem;
+    height: 20rem
+    
+  }
+
+
