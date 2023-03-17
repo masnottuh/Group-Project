@@ -79,3 +79,40 @@ label {
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
+
+/* # book Card styling */
+
+.books-card-info{
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  padding: 2px;
+}
+
+/* carousel settings */
+ /* .books-block {
+  justify-content: center;
+  padding-top: 150px;
+  padding-bottom: 60px;
+} 
+.book_format {
+  justify-content: center;
+  border-left: 50rem;
+  flex-direction: row;
+  } 
+  .carousel-inner {
+    justify-content: center;
+    align-items: center;
+     width: 500px;
+    margin: 10%;
+    padding: 10%;
+    
+  }
+  .image {
+    height: auto;
+    max-width:50%;
+  }
+   */
+  
+
+
