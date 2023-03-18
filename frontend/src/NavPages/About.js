@@ -12,8 +12,68 @@ const About = () =>{
         BookClub aims to bring all of the charm and community of a local book club
         to readers around the world.
         </div>
+
+        <div class="about-section">
+</div>
+
+<h2>Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team1.jpg" alt="Jane" />
+      <div class="container">
+        <h2>Jane Doe</h2>
+        <p>Favorite Book: The Catcher in the Rye</p>
+        <p>jane@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team2.jpg" alt="Mike"/>
+      <div class="container">
+        <h2>Human Being</h2>
+        <p>Favorite Book: Band of Brothers</p>
+        <p>mike@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team3.jpg" alt="John"/>
+      <div class="container">
+        <h2>John Doe</h2>
+        <p>Favorite Book: The Dictionary</p>
+        <p>john@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team3.jpg" alt="John"/>
+      <div class="container">
+        <h2>Another Person</h2>
+        <p>Favorite Book: Thinking Fast and Slow</p>
+        <p>john@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   );
 }
 export default About;
+
+
+
+
+
