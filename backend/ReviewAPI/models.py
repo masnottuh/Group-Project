@@ -9,6 +9,8 @@ class Book(models.Model):
     description = models.TextField(blank=True)
     publisher = models.CharField(max_length=50)
 
+    def __str__(self):
+        return str(self.title)
 
 class Review(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -43,4 +45,7 @@ class Room(models.Model):
     code = models.CharField(max_length=8, default='generate_unique_code', unique=True)
     host = models.CharField(max_length=50, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.code)
 
