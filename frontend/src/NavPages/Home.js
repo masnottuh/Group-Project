@@ -21,6 +21,8 @@ const Home = () =>{
 }, [])
     
 return (
+  <>
+  <img width="500" className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club Logo" />
     <div className="centered">
       <BookSearch />
      <h1>Top 15 Best Sellers Fiction Books</h1>
@@ -31,10 +33,12 @@ return (
             
             return(
               <div key={rank}>
-              <Card key ={rank} className='m-2 rounded shadow-lg' style={{width:'15rem'}}>
+              {/* <Card key ={rank} className='m-2 rounded shadow-lg' style={{width:'15rem'}}> */}
+              <Card raised className='BookListItem-main-card m-2 rounded shadow-lg'>
               <Card.Body>
                 <div>
-                    <Card.Img fluid="true" className ="image_book" variant ='top' src={book_image} alt={title}></Card.Img>
+                    {/* <Card.Img fluid="true" className ="image_book" variant ='top' src={book_image} alt={title}></Card.Img> */}
+                    <Card.Img  fluid="true" className ="BookListItem-img" variant ='top' src={book_image} alt={title}></Card.Img>
                     <Card.Text>{description}</Card.Text>
                     <Card.Text>Written by: {author}</Card.Text>
                     <p>Rank: {rank}</p>
@@ -66,6 +70,7 @@ return (
          
         </div>
     </div>
+    </>
   );
 }
 export default Home;
