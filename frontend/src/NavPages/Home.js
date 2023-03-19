@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import Carousel from'react-bootstrap/Carousel'
 import axios from "axios"
 import { MDBCard} from 'mdb-react-ui-kit';
+import BookSearch from './BookSearch';
 
 const Home = () =>{
   const[books, setBooks] = useState([])
@@ -12,7 +13,7 @@ const Home = () =>{
   useEffect(()=>{
   const getBooks = async () => {
     const response = await axios.get(`https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${process.env.REACT_APP_BOOKS_API_KEY}`)
-    console.log(response.data.results.books)
+    // console.log(response.data.results.books)
     setBooks(response.data.results.books)
   }
     
@@ -21,21 +22,21 @@ const Home = () =>{
     
 return (
     <div className="centered">
+      <BookSearch />
      <h1>Top 15 Best Sellers Fiction Books</h1>
-    
       <div className='books-card-info'>
      
          {books.map((book) =>{
             const{author, book_image, buy_links, primary_isbn10,description, publisher, rank, title}= book
             
             return(
-              <div >
+              <div key={rank}>
               <Card key ={rank} className='m-2 rounded shadow-lg' style={{width:'15rem'}}>
               <Card.Body>
                 <div>
-                    <Card.Img fluid className ="image_book" variant ='top' src={book_image} alt={title}></Card.Img>
+                    <Card.Img fluid="true" className ="image_book" variant ='top' src={book_image} alt={title}></Card.Img>
                     <Card.Text>{description}</Card.Text>
-                    <Card.Text>Writen by: {author}</Card.Text>
+                    <Card.Text>Written by: {author}</Card.Text>
                     <p>Rank: {rank}</p>
                       {/* <ul>
                         <li>Publisher: {publisher}</li>
