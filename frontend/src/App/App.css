@@ -113,6 +113,53 @@ label {
     max-width:50%;
   }
    */
+   .search-form{
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .AutoFocus form-control{
+    width: 40%;
+    border:none;
+    padding: 10px;
+    border-radius: 5px;
+   }
+
+   .BookListItem-main-card {
+    width: 320px;
+    height:700px;
+    justify-content:center; 
+    align-items:center;
+    text-align:center;
+    background-color:beige;
+    color:rgb(86, 12, 12)
+  }
   
-
-
+  .BookListItem-img {
+    padding-top: 10px;
+    height: auto;
+    max-height: 250px;
+    width: auto;
+    max-width: 250px;
+ 
+  }
+  .SearchListItem-main-card {
+    width:300px;
+    height:350px;
+    justify-content:center; 
+    align-items:center;
+    text-align:center;
+    background-color:beige;
+    color:rgb(86, 12, 12)
+  }
+  
+  .SearchListItem-img {
+    padding-top: 20px;
+    height: auto;
+    max-height: 200px;
+    width: auto;
+    max-width:200px;
+ 
+  }
+  
