@@ -10,7 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ('id', 'title', 'author', 'description','book_cover', 'publisher')
+        fields = ('id', 'title', 'author', 'description', 'publisher')
 
 
 class ReviewSerializer(serializers.ModelSerializer):
@@ -19,7 +19,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Review
-        fields = ['id', 'book_title', 'body', 'owner', 'comments']
+        fields = ['id', 'book_title', 'body', 'owner', 'book', 'comments']
 
 class UserSerializer(serializers.ModelSerializer):
     reviews = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
