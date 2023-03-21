@@ -8,6 +8,7 @@ class Book(models.Model):
     author = models.CharField(max_length=50)
     description = models.TextField(blank=True)
     publisher = models.CharField(max_length=50)
+  
 
     def __str__(self):
         return str(self.title)
@@ -18,6 +19,9 @@ class Review(models.Model):
     body = models.TextField(blank=True, default='')
     owner = models.ForeignKey('auth.User', related_name='reviews', on_delete=models.CASCADE)
     book = models.ForeignKey('Book', related_name='book_reviews', on_delete= models.CASCADE)
+
+    def __str__(self):
+        return str(self.body)
 
     class Meta:
         ordering = ['created']
@@ -30,6 +34,23 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['created']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def generate_unique_code():
     length = 6
