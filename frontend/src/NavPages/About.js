@@ -5,7 +5,7 @@ const About = () =>{
     <div className="centered">
       <h3>About Book Club</h3>
       <div>
-        <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width='100%'/>
+        <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width="500"/>
         <div>
         BookClub was founded by 4 graduates of Code Platoon's Full-Stack Engineering Program, {'\n'}
         BookClub aims to bring all of the charm and community of a local book club
