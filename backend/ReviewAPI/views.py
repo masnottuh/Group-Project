@@ -48,6 +48,7 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
 class BookView(generics.ListAPIView):
     queryset = Book.objects.all()
     serializer_class = serializers.BookSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class RoomView(generics.ListAPIView):
     queryset = Room.objects.all()

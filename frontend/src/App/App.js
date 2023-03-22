@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Auth from '../Login/Auth';
 import About from '../NavPages/About';
 import Home from '../NavPages/Home'
+import ReviewList from '../NavPages/ReviewList';
 import useToken from '../Login/useToken';
 
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -15,9 +16,9 @@ function App() {
 
   const { token, setToken } = useToken(); //simple token auth for now
 
-  // if(!token) {
-  //   return <Auth setToken={setToken} />
-  // }
+  if(!token) {
+    return <Auth setToken={setToken} />
+  }
 
   return (
     <div className="wrapper">
@@ -29,6 +30,7 @@ function App() {
               <Nav className="me-auto">
                 <Nav.Link href="Home">Home</Nav.Link>
                 <Nav.Link href="About">About</Nav.Link>
+                <Nav.Link href="Reviews">Book Reviews</Nav.Link>
                 <Navbar.Collapse className="justify-content-end">
                  <button id="logout_button" onClick={logout_now}>
                 Logout</button>
@@ -43,6 +45,7 @@ function App() {
           <Route path="/auth" element={<Auth/>}/>
           <Route path="/Home" element={<Home/>}/>
           <Route path="/About" element={<About/>}/>
+          <Route path="/Reviews" element={<ReviewList/>}/>
           
         </Routes>
       </Router>
