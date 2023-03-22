@@ -13,7 +13,11 @@ function BookSearch() {
     }  
     function handleSubmit(event) {  
         event.preventDefault(); 
-        axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + "AIzaSyCqi37mzRrzkBrDZDb0BX9_IarX5iMOT88" + "&maxResults=40")  
+        var a = "https://www.googleapis.com/books/v1/volumes?q="
+        var b = "&key="
+        var c = "AIzaSyCqi37mzRrzkBrDZDb0BX9_IarX5iMOT88"
+        var d = "&maxResults=40"
+        axios.get(a + book + b + c + d)  
             .then(data => {  
                 console.log(data.data.items);  
                 setResult(data.data.items);  
