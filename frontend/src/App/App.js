@@ -1,14 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import Auth from '../Login/Auth';
-import About from '../NavPages/About';
-import Home from '../NavPages/Home'
-import ReviewList from '../NavPages/ReviewList';
+import Navbar from 'react-bootstrap/Navbar';
+import AnimatedRoutes from './AnimatedRoutes';
 import useToken from '../Login/useToken';
-
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
 
@@ -40,14 +37,7 @@ function App() {
           </Container>
         </Navbar>
       <Router>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/auth" element={<Auth/>}/>
-          <Route path="/Home" element={<Home/>}/>
-          <Route path="/About" element={<About/>}/>
-          <Route path="/Reviews" element={<ReviewList/>}/>
-          
-        </Routes>
+        <AnimatedRoutes />
       </Router>
     </div>
   );
