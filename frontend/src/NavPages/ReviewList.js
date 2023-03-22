@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import Book from './Book'
-import Comment from './Comment'
+// import Book from './Book'
+// import Comment from './Comment'
 
 function ReviewList() {
     

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container'
-import Carousel from'react-bootstrap/Carousel'
+// import Container from 'react-bootstrap/Container'
+// import Carousel from'react-bootstrap/Carousel'
 import axios from "axios"
-import { MDBCard} from 'mdb-react-ui-kit';
+// import { MDBCard} from 'mdb-react-ui-kit';
 import BookSearch from './BookSearch';
 
 const Home = () =>{
@@ -29,7 +29,8 @@ return (
       <div className='books-card-info'>
      
          {books.map((book) =>{
-            const{author, book_image, buy_links, primary_isbn10,description, publisher, rank, title}= book
+            // const{author, book_image, buy_links, primary_isbn10,description, publisher, rank, title}= book
+            const{author, book_image, buy_links,description, rank, title}= book
             
             return(
               <div key={rank}>
