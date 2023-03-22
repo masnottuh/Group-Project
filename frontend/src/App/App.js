@@ -7,10 +7,12 @@ import Auth from '../Login/Auth';
 import About from '../NavPages/About';
 import Home from '../NavPages/Home'
 import ReviewList from '../NavPages/ReviewList';
+import NewReview from '../NavPages/NewReview';
 import useToken from '../Login/useToken';
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
+
 
 function App() {
 
@@ -46,6 +48,7 @@ function App() {
           <Route path="/Home" element={<Home/>}/>
           <Route path="/About" element={<About/>}/>
           <Route path="/Reviews" element={<ReviewList/>}/>
+          <Route path="/New" element={<NewReview/>}/>
           
         </Routes>
       </Router>
