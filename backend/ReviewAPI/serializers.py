@@ -2,41 +2,44 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from ReviewAPI.models import Review, Comment, Room, Book
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username'] 
+
 
 class BookSerializer(serializers.ModelSerializer):
+    book_reviews = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+   
     class Meta:
         model = Book
-        fields = ('id', 'title', 'author', 'description', 'publisher')
+        fields = ('id', 'title', 'author', 'description', 'publisher','book_reviews')
 
 
 class ReviewSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
-    comments = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-
+    book = serializers.ReadOnlyField(source='book.title')
+    review_comments = serializers.StringRelatedField(many=True, read_only=True)
+   
     class Meta:
         model = Review
-        fields = ['id', 'book_title', 'body', 'owner', 'book', 'comments']
+        fields = ['id', 'book_title', 'body', 'owner', 'book', 'review_comments']
 
-class UserSerializer(serializers.ModelSerializer):
-    reviews = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-    comments = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'reviews', 'comments']
 
 class CommentSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
-
+    review = serializers.ReadOnlyField(source='review_comments')
+    
+    
     class Meta:
         model = Comment
         fields = ['id', 'body', 'owner', 'review']
-from rest_framework import serializers
-from .models import Room
+
+
+class UserSerializer(serializers.ModelSerializer):
+    reviews = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    review_comments = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    book_reviews = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'reviews','review_comments','book_reviews']
 
 
 class RoomSerializer(serializers.ModelSerializer):

@@ -11,7 +11,7 @@ class Book(models.Model):
   
 
     def __str__(self):
-        return str(self.title)
+        return self.title
 
 class Review(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -21,7 +21,7 @@ class Review(models.Model):
     book = models.ForeignKey('Book', related_name='book_reviews', on_delete= models.CASCADE)
 
     def __str__(self):
-        return str(self.body)
+        return self.body
 
     class Meta:
         ordering = ['created']
@@ -30,8 +30,10 @@ class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     body = models.TextField(blank=False)
     owner = models.ForeignKey('auth.User', related_name='comments', on_delete=models.CASCADE)
-    review = models.ForeignKey('Review', related_name='comments', on_delete=models.CASCADE)
+    review = models.ForeignKey('Review', related_name='review_comments', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.body
     class Meta:
         ordering = ['created']
 
