@@ -2,6 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 // import Book from './Book'
 // import Comment from './Comment'
+import { motion } from "framer-motion";
 
 function ReviewList() {
     
@@ -24,11 +25,13 @@ function ReviewList() {
   //       return i
   //   }
   // }
-  
-      
-     
-
   return (
+    <motion.main
+   className="main__container"
+   initial={{ width: 0 }}
+    animate={{ width: "100%" }}
+    exit={{ x: "100%", opacity: 0 }}
+    transition={{ duration: 2 }}>
     <div>
      {/* <Book /> */}
      {/* <Comment/> */}
@@ -47,6 +50,7 @@ function ReviewList() {
           )
         })}
     </div>
+    </motion.main>
   )
 }
 
