@@ -19,7 +19,14 @@ function ReviewList() {
     .catch(error => console.log(error))
 
   }, [])
+
   return (
+    <motion.main
+   className="main__container"
+   initial={{ width: 0 }}
+    animate={{ width: "100%" }}
+    exit={{ x: "100%", opacity: 0 }}
+    transition={{ duration: 2 }}>
     <div>
       <img className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club Logo" width="500"/>
       <h1 className="review-title">Book Club Reviews</h1>
@@ -43,6 +50,7 @@ function ReviewList() {
         </Link>
         </div>
     </div>
+    </motion.main>
   )
 }
 
