@@ -1,28 +1,33 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { motion } from "framer-motion";
 
 
 const About = () =>{
   return (
+    <motion.main
+   className="main__container"
+   initial={{ y: -20, opacity: 0 }}
+animate={{ y: 0, opacity: 1 }}
+transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
     <div className="secondary">
       <div>
-        <center>
-        <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width="500"/>
+           <img className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club Logo" width="500"/>
         <div>
         BookClub was founded by 4 graduates of Code Platoon's Full-Stack Engineering Program, {'\n'}
         BookClub aims to bring all of the charm and community of a local book club
         to readers around the world.
         <span> </span>
         </div>
-        </center>
+        <center/>
       </div>
 <hr></hr>
 
 <Row xs={1} md={2} className="g-4">
   <Col>
-    <Card>
+    <Card style={{backgroundColor:'beige'}}>
     <Card.Img variant="top" src={require("../images/3.jfif")}/>
       <Card.Body>
         <Card.Title>Lizuca</Card.Title>
@@ -35,7 +40,7 @@ const About = () =>{
   </Col>
 
   <Col>
-    <Card>
+    <Card style={{backgroundColor:'beige'}}>
     <Card.Img variant="top" src={require("../images/2.jfif")}/>
       <Card.Body>
         <Card.Title>Aaron</Card.Title>
@@ -48,7 +53,7 @@ const About = () =>{
   </Col>
 
   <Col>
-    <Card>
+  <Card style={{backgroundColor:'beige'}}>
     <Card.Img variant="top" src={require("../images/2.jfif")}/>
       <Card.Body>
         <Card.Title>Robert "Sam"</Card.Title>
@@ -61,7 +66,7 @@ const About = () =>{
   </Col>
 
   <Col>
-    <Card>
+  <Card style={{backgroundColor:'beige'}}>
     <Card.Img variant="top" src={require("../images/3.jfif")}/>
       <Card.Body>
         <Card.Title>Sam Zilli</Card.Title>
@@ -75,11 +80,7 @@ const About = () =>{
 </Row>
 <hr></hr>
 </div>
+</motion.main>
   );
 }
 export default About;
-
-
-
-
-
