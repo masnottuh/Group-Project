@@ -14,8 +14,7 @@ animate={{ y: 0, opacity: 1 }}
 transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
     <div className="secondary">
       <div>
-        <center>
-        <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width="500"/>
+           <img className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club Logo" width="500"/>
         <div>
         BookClub was founded by 4 graduates of Code Platoon's Full-Stack Engineering Program, {'\n'}
         BookClub aims to bring all of the charm and community of a local book club
