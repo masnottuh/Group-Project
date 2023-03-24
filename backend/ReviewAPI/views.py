@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from ReviewAPI.models import Review, Comment, Room, Book
 from rest_framework import permissions
 from ReviewAPI.permissions import IsOwnerOrReadOnly
+from rest_framework.authentication import SessionAuthentication,TokenAuthentication
 
 #read-only access (via get) to the list of users
 class UserList(generics.ListAPIView):
@@ -19,7 +20,10 @@ class UserDetail(generics.RetrieveAPIView):
 class ReviewList(generics.ListCreateAPIView):
     queryset = Review.objects.all()
     serializer_class = serializers.ReviewSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly] 
+    authentication_classes = [TokenAuthentication, SessionAuthentication]
+
+ 
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
