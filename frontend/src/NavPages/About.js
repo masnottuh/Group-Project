@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { motion } from "framer-motion";
@@ -21,13 +21,13 @@ transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
         to readers around the world.
         <span> </span>
         </div>
-        </center>
+        <center/>
       </div>
 <hr></hr>
 
 <Row xs={1} md={2} className="g-4">
   <Col>
-    <Card>
+    <Card style={{backgroundColor:'beige'}}>
     <Card.Img variant="top" src={require("../images/3.jfif")}/>
       <Card.Body>
         <Card.Title>Lizuca</Card.Title>
@@ -40,7 +40,7 @@ transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
   </Col>
 
   <Col>
-    <Card>
+    <Card style={{backgroundColor:'beige'}}>
     <Card.Img variant="top" src={require("../images/2.jfif")}/>
       <Card.Body>
         <Card.Title>Aaron</Card.Title>
@@ -53,7 +53,7 @@ transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
   </Col>
 
   <Col>
-    <Card>
+  <Card style={{backgroundColor:'beige'}}>
     <Card.Img variant="top" src={require("../images/2.jfif")}/>
       <Card.Body>
         <Card.Title>Robert "Sam"</Card.Title>
@@ -66,7 +66,7 @@ transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
   </Col>
 
   <Col>
-    <Card>
+  <Card style={{backgroundColor:'beige'}}>
     <Card.Img variant="top" src={require("../images/3.jfif")}/>
       <Card.Body>
         <Card.Title>Sam Zilli</Card.Title>
@@ -84,8 +84,3 @@ transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
   );
 }
 export default About;
-
-
-
-
-
