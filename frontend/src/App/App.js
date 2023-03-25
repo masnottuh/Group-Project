@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import {useState, useEffect} from 'react';
+import { BrowserRouter as Router} from 'react-router-dom';
+// import {useState, useEffect} from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Auth from '../Login/Auth';
 
-import About from '../NavPages/About';
-import Home from '../NavPages/Home'
-import ReviewList from '../NavPages/ReviewList';
+// import About from '../NavPages/About';
+// import Home from '../NavPages/Home'
+// import ReviewList from '../NavPages/ReviewList';
 
-import NewReview from '../NavPages/NewReview';
+// import NewReview from '../NavPages/NewReview';
 
 import Navbar from 'react-bootstrap/Navbar';
 import AnimatedRoutes from './AnimatedRoutes';
