@@ -2,24 +2,28 @@ import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-function NewReview() {
+function NewReview(props) {
 
   const navigate = useNavigate()
   const[body, setBody] = useState("")
   // const[book, setBook] = useState("")
-  const[book_title, setBookTitle] = useState('')
+  // const[book_title, setBookTitle] = useState('')
   const[errors, setErrors] = useState("")
-
+  
+ 
+  console.log(props.book)
   
   const handleSubmit = (e) => {
     e.preventDefault()
     const reviewObject = {
       body: body,
       // book: book,
-      book_title:book_title
+      // book_title:book_title,
+      
      }
     console.log(reviewObject)
     addReview(reviewObject)
+   
   }
  const token = window.sessionStorage.getItem('token')
  const result = JSON.parse(token).token
@@ -56,19 +60,20 @@ function NewReview() {
 
 return (
     <div>
-      <h2 className='search-form'>Write a Review</h2>
+      <h3 className='search-form'><em>Write a Review</em></h3>
       {errors && <h4>{JSON.stringify(errors)}</h4>}
 {/* 
         <div className="form=group">
            <input type="text" className="form-control form_control-lg" placeholder="book title..." value={book} name="book" onChange={(e) => setBook(e.target.value)}></input>
         </div> */}
-               <div className="form=group">
+               {/* <div className="form=group">
            <input type="text" className="form-control form_control-lg" placeholder="book title..." value={book_title} name="book" onChange={(e) => setBookTitle(e.target.value)}></input>
-        </div>
+        </div> */}
       
         <div className="form=group">
            <input type="text" className="form-control form_control-lg" placeholder="review..." value={body} name="body" onChange={(e) => setBody(e.target.value)}></input>
        </div>
+
 
     <div className='search-form'>
         <button className="search-button" onClick={handleSubmit}>Submit</button>
