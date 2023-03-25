@@ -9,6 +9,7 @@ import useToken from '../Login/useToken';
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
 
+
 function App() {
 
   const { token, setToken } = useToken(); //simple token auth for now
@@ -37,6 +38,7 @@ function App() {
           </Container>
         </Navbar>
       <Router>
+
         <AnimatedRoutes />
       </Router>
     </div>

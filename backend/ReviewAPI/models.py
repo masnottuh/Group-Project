@@ -18,7 +18,7 @@ class Review(models.Model):
     book_title = models.CharField(max_length=100, blank=True, default='')
     body = models.TextField(blank=True, default='')
     owner = models.ForeignKey('auth.User', related_name='reviews', on_delete=models.CASCADE)
-    book = models.ForeignKey('Book', related_name='book_reviews', on_delete= models.CASCADE)
+    book = models.ForeignKey('Book', related_name='book_reviews', on_delete= models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.body
