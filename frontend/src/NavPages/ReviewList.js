@@ -2,7 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 // import Book from './Book'
 // import Comment from './Comment'
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 function ReviewList() {
     
