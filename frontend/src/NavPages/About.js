@@ -25,10 +25,10 @@ transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
       </div>
 <hr></hr>
 
-<Row xs={1} md={2} className="g-4">
+<Row xs={1} md={2} lg={4}className="g-4">
   <Col>
     <Card style={{backgroundColor:'beige'}}>
-    <Card.Img variant="top" src={require("../images/3.jfif")}/>
+    <Card.Img variant="top" src={require("../images/person4.jpg")} height= "300" width="300"/>
       <Card.Body>
         <Card.Title>Lizuca</Card.Title>
         <Card.Text>
@@ -41,7 +41,7 @@ transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
 
   <Col>
     <Card style={{backgroundColor:'beige'}}>
-    <Card.Img variant="top" src={require("../images/2.jfif")}/>
+    <Card.Img variant="top" src={require("../images/person2.jpg")} height= "300" width="300"/>
       <Card.Body>
         <Card.Title>Aaron</Card.Title>
         <Card.Text>
@@ -54,7 +54,7 @@ transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
 
   <Col>
   <Card style={{backgroundColor:'beige'}}>
-    <Card.Img variant="top" src={require("../images/2.jfif")}/>
+  <Card.Img variant="top" src={require("../images/person1.jpg")} height= "300" width="300"/>
       <Card.Body>
         <Card.Title>Robert "Sam"</Card.Title>
         <Card.Text>
@@ -67,7 +67,7 @@ transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
 
   <Col>
   <Card style={{backgroundColor:'beige'}}>
-    <Card.Img variant="top" src={require("../images/3.jfif")}/>
+  <Card.Img variant="top" src={require("../images/person3.jpg")} height= "300" width="300"/>
       <Card.Body>
         <Card.Title>Sam Zilli</Card.Title>
         <Card.Text>
