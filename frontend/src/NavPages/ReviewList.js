@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react'
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'
 import Button from './Button'
-import NewReview from './NewReview'
+// import NewReview from './NewReview'
 
 function ReviewList() {
     
