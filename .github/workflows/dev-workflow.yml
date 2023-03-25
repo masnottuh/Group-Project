@@ -1,4 +1,4 @@
-# dev-workflow.yml #test flow
+# dev-workflow.yml
 name: CI for Book Club
 
 on:
