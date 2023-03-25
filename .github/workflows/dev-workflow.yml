@@ -3,9 +3,9 @@ name: CI for Book Club
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 # env:
 #   SECRET_KEY: ${{ secrets.SECRET_KEY }}
