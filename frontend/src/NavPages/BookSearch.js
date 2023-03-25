@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';  
 import { Card } from 'react-bootstrap';  
 
-import App from "../App/App";
+// import App from "../App/App";
 
 
 
