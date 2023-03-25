@@ -31,7 +31,7 @@ function ReviewList() {
    initial={{ width: 0 }}
     animate={{ width: "100%" }}
     exit={{ x: "100%", opacity: 0 }}
-    transition={{ duration: 2 }}>
+    transition={{ duration: .6 }}>
 
     <div>
       <img className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club Logo" width="500"/>
@@ -57,10 +57,11 @@ function ReviewList() {
             <h5>Comments:</h5>
              <div>{(r.review_comments).length === 0 ?'no comments yet':r.review_comments.map(comment =><p>{comment}</p>)}</div>
             <hr></hr>
-       
+           
           </div>
           )
         })}
+      
     </div>
     </motion.main>
   )
