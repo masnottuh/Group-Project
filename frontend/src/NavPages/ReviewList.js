@@ -1,5 +1,8 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+// import Book from './Book'
+// import Comment from './Comment'
+// import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'
 import Button from './Button'
 import NewReview from './NewReview'
@@ -22,7 +25,14 @@ function ReviewList() {
   }, [])
 
   return (
-    
+
+    <motion.main
+   className="main__container"
+   initial={{ width: 0 }}
+    animate={{ width: "100%" }}
+    exit={{ x: "100%", opacity: 0 }}
+    transition={{ duration: 2 }}>
+
     <div>
       <img className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club Logo" width="500"/>
       <h1 className="review-title">Book Club Reviews</h1>
@@ -52,6 +62,7 @@ function ReviewList() {
           )
         })}
     </div>
+    </motion.main>
   )
 }
 

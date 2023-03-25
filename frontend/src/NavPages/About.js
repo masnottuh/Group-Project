@@ -1,79 +1,86 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import { motion } from "framer-motion";
+
 
 const About = () =>{
   return (
-    <div className="centered">
-      <h3>About Book Club</h3>
+    <motion.main
+   className="main__container"
+   initial={{ y: -20, opacity: 0 }}
+animate={{ y: 0, opacity: 1 }}
+transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
+    <div className="secondary">
       <div>
-        <img className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club Logo" width="500"/>
+           <img className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club Logo" width="500"/>
         <div>
         BookClub was founded by 4 graduates of Code Platoon's Full-Stack Engineering Program, {'\n'}
         BookClub aims to bring all of the charm and community of a local book club
         to readers around the world.
         <span> </span>
         </div>
-
-        <div class="about-section">
-
-  </div>
-  <h2>Our Team</h2>
-  <div class="row">
-    <div class="column">
-      <div class="card">
-        <img src="/w3images/team1.jpg" alt="Jane" />
-        <div class="container">
-          <h2>Jane Doe</h2>
-          <p>Favorite Book: The Catcher in the Rye</p>
-          <p>jane@example.com</p>
-          <p><button class="button">Contact</button></p>
-        </div>
+        <center/>
       </div>
-    </div>
+<hr></hr>
 
-    <div class="column">
-      <div class="card">
-        <img src="/w3images/team2.jpg" alt="Mike"/>
-        <div class="container">
-          <h2>Human Being</h2>
+<Row xs={1} md={2} className="g-4">
+  <Col>
+    <Card style={{backgroundColor:'beige'}}>
+    <Card.Img variant="top" src={require("../images/3.jfif")}/>
+      <Card.Body>
+        <Card.Title>Lizuca</Card.Title>
+        <Card.Text>
           <p>Favorite Book: Band of Brothers</p>
           <p>mike@example.com</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
+        </Card.Text>
+      </Card.Body>
+    </Card>
+  </Col>
 
-    <div class="column">
-      <div class="card">
-        <img src="/w3images/team3.jpg" alt="John"/>
-        <div class="container">
-          <h2>John Doe</h2>
-          <p>Favorite Book: The Dictionary</p>
+  <Col>
+    <Card style={{backgroundColor:'beige'}}>
+    <Card.Img variant="top" src={require("../images/2.jfif")}/>
+      <Card.Body>
+        <Card.Title>Aaron</Card.Title>
+        <Card.Text>
+            <p>Favorite Book: The Catcher in the Rye</p>
+            <p>aaron@example.com</p>
+        </Card.Text>
+      </Card.Body>
+    </Card>
+  </Col>
+
+  <Col>
+  <Card style={{backgroundColor:'beige'}}>
+    <Card.Img variant="top" src={require("../images/2.jfif")}/>
+      <Card.Body>
+        <Card.Title>Robert "Sam"</Card.Title>
+        <Card.Text>
+        <p>Favorite Book: The Dictionary</p>
           <p>john@example.com</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
+        </Card.Text>
+      </Card.Body>
+    </Card>
+  </Col>
 
-    <div class="column">
-      <div class="card">
-        <img src="/w3images/team3.jpg" alt="John"/>
-        <div class="container">
-          <h2>Sam Zilli</h2>
-          <p>Favorite Book: Thinking Fast and Slow</p>
+  <Col>
+  <Card style={{backgroundColor:'beige'}}>
+    <Card.Img variant="top" src={require("../images/3.jfif")}/>
+      <Card.Body>
+        <Card.Title>Sam Zilli</Card.Title>
+        <Card.Text>
+        <p>Favorite Book: Thinking Fast and Slow</p>
           <p>sam@email.com</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-      </div>
-    </div>
+        </Card.Text>
+      </Card.Body>
+    </Card>
+  </Col>
+</Row>
+<hr></hr>
+</div>
+</motion.main>
   );
 }
 export default About;
-
-
-
-
-

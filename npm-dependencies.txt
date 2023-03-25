@@ -1,4 +1,5 @@
 npm i react-router-dom
 npm i react-bootstrap
 npm i axios
-
+npm i mdb-react-ui-kit
+npm i framer-motion

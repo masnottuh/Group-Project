@@ -1,17 +1,22 @@
 import React from 'react';
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {useState, useEffect} from 'react';
+
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import Auth from '../Login/Auth';
+
 import About from '../NavPages/About';
 import Home from '../NavPages/Home'
 import ReviewList from '../NavPages/ReviewList';
 
 import NewReview from '../NavPages/NewReview';
-import useToken from '../Login/useToken';
 
+import Navbar from 'react-bootstrap/Navbar';
+import AnimatedRoutes from './AnimatedRoutes';
+
+import useToken from '../Login/useToken';
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
 
@@ -43,6 +48,7 @@ const { token, setToken } = useToken(); //simple token auth for now
         </Container>
       </Navbar>
       <Router>
+
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/auth" element={<Auth/>}/>
@@ -51,6 +57,10 @@ const { token, setToken } = useToken(); //simple token auth for now
           <Route path="/Reviews" element={<ReviewList/>}/>
           <Route path="/New" element={<NewReview/>}/>
         </Routes>
+
+
+        <AnimatedRoutes />
+
       </Router>
     </div>
   );

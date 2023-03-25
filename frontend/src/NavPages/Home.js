@@ -1,18 +1,19 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container'
-import Carousel from'react-bootstrap/Carousel'
+// import Container from 'react-bootstrap/Container'
+// import Carousel from'react-bootstrap/Carousel'
 import axios from "axios"
-import { MDBCard} from 'mdb-react-ui-kit';
+// import { MDBCard} from 'mdb-react-ui-kit';
 import BookSearch from './BookSearch';
+import { motion } from "framer-motion";
 
 const Home = () =>{
   const[books, setBooks] = useState([])
   
   useEffect(()=>{
   const getBooks = async () => {
-    const response = await axios.get(`https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${process.env.REACT_APP_BOOKS_API_KEY}`)
+    const response = await axios.get(`https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=dH2IAJjO7DCvwulScJeue1ZLhA11iysw`)
     // console.log(response.data.results.books)
     setBooks(response.data.results.books)
   }
@@ -21,6 +22,13 @@ const Home = () =>{
 }, [])
     
 return (
+  <motion.main
+   className="main__container"
+   initial={{ width: 0 }}
+animate={{ width: "100%" }}
+exit={{ x: "100%",opacity:0 }}
+transition={{ duration: 2, type: "spring", stiffness: 100 }}
+>
   <>
   <img width="500" className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club Logo" />
     <div className="centered">
@@ -30,7 +38,8 @@ return (
       <div className='row'>
      
          {books.map((book) =>{
-            const{author, book_image, buy_links, primary_isbn10,description, publisher, rank, title}= book
+            // const{author, book_image, buy_links, primary_isbn10,description, publisher, rank, title}= book
+            const{author, book_image, buy_links,description, rank, title}= book
             
             return(
               <div key={rank} class="col mb-2">
@@ -69,6 +78,7 @@ return (
         </div>
     </div>
     </>
+    </motion.main>
   );
 }
 export default Home;
