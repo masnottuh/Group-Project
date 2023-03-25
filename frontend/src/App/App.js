@@ -49,14 +49,14 @@ const { token, setToken } = useToken(); //simple token auth for now
       </Navbar>
       <Router>
 
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/auth" element={<Auth/>}/>
           <Route path="/Home" element={<Home/>}/>
           <Route path="/About" element={<About/>}/>
           <Route path="/Reviews" element={<ReviewList/>}/>
           <Route path="/New" element={<NewReview/>}/>
-        </Routes>
+        </Routes> */}
 
 
         <AnimatedRoutes />

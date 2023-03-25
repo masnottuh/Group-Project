@@ -2,7 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 // import Book from './Book'
 // import Comment from './Comment'
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'
 import Button from './Button'
 import NewReview from './NewReview'
