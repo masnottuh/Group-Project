@@ -26,13 +26,14 @@ return (
     <div className="centered">
       <BookSearch />
      <h1>Top 15 Best Sellers Fiction Books</h1>
-      <div className='books-card-info'>
+      {/* <div className='books-card-info'> */}
+      <div className='row'>
      
          {books.map((book) =>{
             const{author, book_image, buy_links, primary_isbn10,description, publisher, rank, title}= book
             
             return(
-              <div key={rank}>
+              <div key={rank} class="col mb-2">
               {/* <Card key ={rank} className='m-2 rounded shadow-lg' style={{width:'15rem'}}> */}
               <Card raised className='BookListItem-main-card m-2 rounded shadow-lg'>
               <Card.Body>
@@ -62,12 +63,9 @@ return (
                  </div>
                 </Card.Body>
               </Card>
-         
-         
-          </div>
+            </div>
             )
           })}
-         
         </div>
     </div>
     </>

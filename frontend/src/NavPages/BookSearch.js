@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import axios from 'axios';  
 import { Card } from 'react-bootstrap';  
 
+import App from "../App/App";
 
-function BookSearch() {  
+
+
+function BookSearch(props) {  
   const [book, setBook] = useState("");  
   const [result, setResult] = useState([]);  
   
@@ -29,9 +32,9 @@ function BookSearch() {
                         <input onChange={handleChange} className="AutoFocus form-control" placeholder="Enter book keywords..." type="text" />  
                     </div>
                      <div className="ml-auto">  
-                        <input type="submit" value="Search all Books" className="btn btn-primary search-btn" />  
+                        <input type="submit" value="Search all Books" className="button" />  
                      </div>
-                    
+                     {/* <button className="btn btn-primary" onClick={props.reviewForm}>Write a Review</button> */}
                 </div>  
              </div>  
  
@@ -48,7 +51,8 @@ function BookSearch() {
                   <Card.Img className ="SearchListItem-img" variant="top" src={book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.thumbnail : ''} alt={book.title} />  
                       <Card.Body>  
                         <h5 className="card-title">{book.volumeInfo.title}</h5>  
-                            <a className="btn btn-primary" href = {book.volumeInfo.infoLink}>More Info</a>  
+                        <br></br>
+                            <a className="button" href = {book.volumeInfo.infoLink}>More Info</a>  
                                 </Card.Body> 
                                
                             </Card>  
