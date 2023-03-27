@@ -49,7 +49,20 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
 
-class BookView(generics.ListAPIView):
+# class BookView(generics.ListAPIView):
+#     queryset = Book.objects.all()
+#     serializer_class = serializers.BookSerializer
+#     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+class BookList(generics.ListCreateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = serializers.BookSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    authentication_classes = [TokenAuthentication, SessionAuthentication]
+
+  
+
+class BookDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = serializers.BookSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
