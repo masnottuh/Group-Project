@@ -46,7 +46,7 @@ return (
         return(
           <div className= "review-page"key={r.id}>
             <h3>{r.book} {r.book_title}</h3>
-            <img src={require("../images/icons8-customer-48.png")} />
+            <img src={require("../images/icons8-customer-48.png")} alt="user" />
             by {r.owner}• Reviewed on {(r.created.slice(0,10))}
             <em><p>{r.body}</p></em>
             <br></br>
