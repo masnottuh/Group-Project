@@ -1,11 +1,9 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-// import Book from './Book'
-// import Comment from './Comment'
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'
 import Button from './Button'
-// import NewReview from './NewReview'
+
 
 function ReviewList() {
     
@@ -14,17 +12,14 @@ function ReviewList() {
   useEffect(() =>{
     fetch('http://localhost:8000/api/reviews/', {
       method:'GET',
-      // headers:{
-      //   'Content-Type': 'application/json',
-      // }
-    })
+   })
     .then(resp => resp.json())
     .then(resp => setReviews(resp))
     .catch(error => console.log(error))
 
   }, [])
 
-  return (
+return (
 
     <motion.main
    className="main__container"
@@ -47,22 +42,25 @@ function ReviewList() {
         </Link>
         </div>
       <hr></hr>
-      
       {reviews && reviews.map(r =>{
         return(
           <div className= "review-page"key={r.id}>
-            <h3>Reviews for {r.book} {r.book_title}:</h3>
-            <li><em>{r.owner} writes:</em><p>{r.body}</p></li>
+            <h3>{r.book} {r.book_title}</h3>
+            <img src={require("../images/icons8-customer-48.png")} />
+            by {r.owner}• Reviewed on {(r.created.slice(0,10))}
+            <em><p>{r.body}</p></em>
             <br></br>
             <h5>Comments:</h5>
-             <div>{(r.review_comments).length === 0 ?'no comments yet':r.review_comments.map(comment =><p>{comment}</p>)}</div>
-            <hr></hr>
-           
-          </div>
+            <div>{(r.review_comments).length === 0 ?'no comments yet':r.review_comments.map(comment =>
+             <>
+             <p>{comment}</p>
+             </>
+             )}</div>
+             <hr></hr>
+            </div>
           )
         })}
-      
-    </div>
+      </div>
     </motion.main>
   )
 }

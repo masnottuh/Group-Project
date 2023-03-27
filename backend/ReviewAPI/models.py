@@ -7,7 +7,7 @@ class Book(models.Model):
     title = models.CharField(max_length=100, blank=True, default='')
     author = models.CharField(max_length=50)
     description = models.TextField(blank=True)
-    publisher = models.CharField(max_length=50)
+    publisher = models.CharField(max_length=50, blank=True)
   
 
     def __str__(self):
@@ -33,7 +33,9 @@ class Comment(models.Model):
     review = models.ForeignKey('Review', related_name='review_comments', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.body
+        newline = '\n'
+        
+        return f"{self.owner} commented: {newline} {self.body}"
     class Meta:
         ordering = ['created']
 

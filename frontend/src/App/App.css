@@ -128,8 +128,8 @@ label {
    }
 
    .BookListItem-main-card {
-    width: 320px;
-    height:700px;
+    width: 425px;
+    height:750x;
     justify-content:center; 
     align-items:center;
     text-align:center;
@@ -138,13 +138,18 @@ label {
   }
   
   .BookListItem-img {
-    padding-top: 10px;
+    padding-top: 30px;
     height: auto;
-    max-height: 250px;
+    max-height: 200px;
     width: auto;
-    max-width: 250px;
+    max-width: 200px;
  
   }
+  /* .BookListItem-img {
+    padding-top:10px;
+    height: 200px;
+    width: 150px;
+  } */
   .SearchListItem-main-card {
     width:300px;
     height:350px;

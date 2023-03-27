@@ -1,24 +1,56 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
-function NewReview(props) {
-
+function NewReview() {
   const navigate = useNavigate()
   const[body, setBody] = useState("")
-  // const[book, setBook] = useState("")
-  // const[book_title, setBookTitle] = useState('')
+  const[book_title, setBookTitle] = useState('')
   const[errors, setErrors] = useState("")
+  const[books, setBooks] = useState([])
+  // const[book, setBook] = useState('Select a title')
+  // const[title,setTitle] = useState('Select a title')
   
- 
-  console.log(props.book)
+ useEffect(() =>{
+    fetch('http://localhost:8000/api/book/', {
+      method:'GET',
+   })
+    .then(resp => resp.json())
+    .then(resp => setBooks(resp))
+    .catch(error => console.log(error))
+}, [])
+  // 1. console.log(books)
+//   const allTitles = books.map(book => book.title)
+//   console.log(allTitles)
+
+//   function getTitle(){
+//     for (const element of allTitles){
+//      console.log(element)
+//     }
+//   }
+// getTitle()
+  
+  // 2.useEffect(() =>{
+  // const allTitles = books.map(book => book.title)
+  // setTitle(allTitles[0])
+  // },[])
+  const allTitles = books.map(book => book.title)
+  function handleChange(event) {
+    console.log(event.target.value);
+    setBookTitle(event.target.value);
+  }
+
+  useEffect(() => {
+    console.log("Value of title in State is: ", book_title);
+  }, [book_title]);
   
   const handleSubmit = (e) => {
     e.preventDefault()
+   
     const reviewObject = {
       body: body,
+      // title: title,
       // book: book,
-      // book_title:book_title,
+      book_title: book_title
       
      }
     console.log(reviewObject)
@@ -60,26 +92,37 @@ function NewReview(props) {
 
 return (
     <div>
-      <h3 className='search-form'><em>Write a Review</em></h3>
+      <img width="500" className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club  Logo" />
+    <h3 className='search-form'><em>Write a Review</em></h3>
       {errors && <h4>{JSON.stringify(errors)}</h4>}
-{/* 
+        
+        {/* <div className="form=group">
+            <input type="text" className="form-control form_control-lg" placeholder="book..." value={book} name="book" onChange={(e) => setBook(e.target.value)}></input>
+        </div>  */}
+
+         {/* <div className="form=group">
+            <input type="text" className="form-control form_control-lg" placeholder="title..." value={title} name="title" onChange={(e) => setTitle(e.target.value)}></input>
+         </div>  */}
+         
         <div className="form=group">
-           <input type="text" className="form-control form_control-lg" placeholder="book title..." value={book} name="book" onChange={(e) => setBook(e.target.value)}></input>
-        </div> */}
-               {/* <div className="form=group">
-           <input type="text" className="form-control form_control-lg" placeholder="book title..." value={book_title} name="book" onChange={(e) => setBookTitle(e.target.value)}></input>
-        </div> */}
-      
+           <input type="text" className="form-control form_control-lg" placeholder="book title..." value={book_title} name="book_title" onChange={(e) => setBookTitle(e.target.value)}></input>
+           <select onChange={handleChange}> 
+                  <option value="Select a title"> -- Select a title -- </option>
+                  {allTitles.map((book_title) => <option value={book_title}>{book_title}</option>)}
+                </select>
+        </div> 
+          
         <div className="form=group">
            <input type="text" className="form-control form_control-lg" placeholder="review..." value={body} name="body" onChange={(e) => setBody(e.target.value)}></input>
        </div>
 
 
-    <div className='search-form'>
-        <button className="search-button" onClick={handleSubmit}>Submit</button>
-      </div>
-    </div>
-  )
+        <div className='search-form'>
+          <button className="search-button" onClick={handleSubmit}>Submit</button>
+        </div>
+
+      </div> 
+    )
 }
 
 export default NewReview
