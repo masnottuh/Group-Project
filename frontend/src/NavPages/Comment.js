@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 
+
 export default function Comment() {
 
   const[comments, setComments] = useState([])
@@ -8,9 +9,6 @@ export default function Comment() {
   useEffect(() =>{
     fetch('http://localhost:8000/api/comments/', {
       method:'GET',
-      // headers:{
-      //   'Content-Type': 'application/json',
-      // }
     })
     .then(resp => resp.json())
     .then(resp => setComments(resp))
@@ -24,12 +22,14 @@ export default function Comment() {
       {comments && comments.map(comment =>{
           return(
            <div key={comment.id}>
-                <p>{comment.body} </p> 
+                <p>{comment.owner}</p>
+               
           </div>
             )
           })}
+          
     </div>
   
-   )
+  )
 }
 

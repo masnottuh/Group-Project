@@ -26,6 +26,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     book = serializers.ReadOnlyField(source='book.title')
     review_comments = serializers.StringRelatedField(many=True, read_only=True)
+   
 
     def create(self, validated_data):
         return Review.objects.create(**validated_data)
