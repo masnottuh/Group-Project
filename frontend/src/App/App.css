@@ -42,7 +42,7 @@
 
 /* LOGIN SPECIFIC STYLING HERE */
 .App {
- background: white;
+ background: rgb(239, 233, 233);
 }
 
 .Auth-form-container {
@@ -200,4 +200,10 @@ label {
     padding: 10px 20px;
     color: white;
     margin: 0 0 0 10px;
+    }
+    .wrapper{
+      background-color: rgb(175, 224, 230);
+      background-image: linear-gradient(to right, 
+        #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, 
+        #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%);
     }

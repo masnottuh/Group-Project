@@ -55,7 +55,11 @@ return (
              <>
              <p>{comment}</p>
              </>
-             )}</div>
+             )}<Link to="/Comment">
+             <Button color="white">
+                 <span>Leave a Comment</span>
+             </Button>
+           </Link></div>
              <hr></hr>
             </div>
           )
