@@ -18,21 +18,7 @@ function NewReview() {
     .then(resp => setBooks(resp))
     .catch(error => console.log(error))
 }, [])
-  // 1. console.log(books)
-//   const allTitles = books.map(book => book.title)
-//   console.log(allTitles)
-
-//   function getTitle(){
-//     for (const element of allTitles){
-//      console.log(element)
-//     }
-//   }
-// getTitle()
-  
-  // 2.useEffect(() =>{
-  // const allTitles = books.map(book => book.title)
-  // setTitle(allTitles[0])
-  // },[])
+ 
   const allTitles = books.map(book => book.title)
   function handleChange(event) {
     console.log(event.target.value);
@@ -96,13 +82,7 @@ return (
     <h3 className='search-form'><em>Write a Review</em></h3>
       {errors && <h4>{JSON.stringify(errors)}</h4>}
         
-        {/* <div className="form=group">
-            <input type="text" className="form-control form_control-lg" placeholder="book..." value={book} name="book" onChange={(e) => setBook(e.target.value)}></input>
-        </div>  */}
-
-         {/* <div className="form=group">
-            <input type="text" className="form-control form_control-lg" placeholder="title..." value={title} name="title" onChange={(e) => setTitle(e.target.value)}></input>
-         </div>  */}
+        
          
         <div className="form=group">
            <input type="text" className="form-control form_control-lg" placeholder="book title..." value={book_title} name="book_title" onChange={(e) => setBookTitle(e.target.value)}></input>
