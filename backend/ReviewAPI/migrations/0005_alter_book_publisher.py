@@ -3,6 +3,7 @@
 from django.db import migrations, models
 
 
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -10,9 +11,13 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+
         migrations.AlterField(
             model_name='book',
             name='publisher',
             field=models.CharField(blank=True, max_length=50),
         ),
+
+
     ]
+
