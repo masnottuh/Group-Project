@@ -58,7 +58,7 @@ transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
       <Card.Body>
         <Card.Title>Robert "Sam"</Card.Title>
         <Card.Text>
-        <p>Favorite Book: The Dictionary</p>
+        <p>Favorite Book: Harry Potter Series</p>
           <p>john@example.com</p>
         </Card.Text>
       </Card.Body>
