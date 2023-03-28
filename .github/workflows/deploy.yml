@@ -10,39 +10,44 @@ env:
 
 
 jobs:
-  build:
-    name: Build and Package
+  react-tests:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
     steps:
-      - uses: actions/checkout@v2
-        name: Checkout Repository
+    - uses: actions/checkout@v3
+    - name: Set Up Node for Frontend
+      uses: actions/setup-node@v3
+      with:
+        node-version: lts/*
+    - run: npm ci
+      working-directory: ./frontend
+    - run: npm run build --if-present
+      working-directory: ./frontend
+    # - run: npm test
+    #   working-directory: ./frontend
 
-      - uses: aws-actions/configure-aws-credentials@v1
+  django-tests:
+    runs-on: ubuntu-latest 
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
-          role-to-assume: ${{ secrets.IAMROLE_GITHUB }}
-          role-session-name: GitHub-Action-Role
-          aws-region: ${{ env.AWS_REGION }}
+          python-version: '3.11' 
+      - run: pip install -r requirements.txt 
+        working-directory: ./backend
+      - run: python manage.py test
+        working-directory: ./backend
 
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-
-      - name: chmod
-        run: chmod -R +x ./.github
-
-      - name: Build and Package Maven
-        id: package
-        working-directory: ${{ env.applicationfolder }}
-        run: $GITHUB_WORKSPACE/.github/scripts/build.sh
-
-      - name: Upload Artifact to s3
-        working-directory: ${{ env.applicationfolder }}/target
-        run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/
-        
+  run-compose:
+    needs: [react-tests, django-tests]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Start containers
+      run: ./run-compose-dev-ci.sh
+    - name: Stop containers
+      if: always()
+      run: docker-compose -f docker-compose.dev.yml down
+      
   deploy:
     needs: build
     runs-on: ubuntu-latest
