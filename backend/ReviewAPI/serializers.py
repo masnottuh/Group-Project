@@ -49,6 +49,14 @@ class CommentSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     review = serializers.ReadOnlyField(source='review_comments')
     
+    def create(self, validated_data):
+        return Comment.objects.create(**validated_data)
+
+    # def update(self, instance, validated_data):
+    #     instance.created = validated_data.get('created', instance.created)
+    #     instance.body = validated_data.get('body', instance.body)
+    #     instance.save()
+    #     return instance
     
     class Meta:
         model = Comment
