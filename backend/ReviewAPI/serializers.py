@@ -52,11 +52,15 @@ class CommentSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         return Comment.objects.create(**validated_data)
 
-    # def update(self, instance, validated_data):
-    #     instance.created = validated_data.get('created', instance.created)
-    #     instance.body = validated_data.get('body', instance.body)
-    #     instance.save()
-    #     return instance
+
+
+    def update(self, instance, validated_data):
+        instance.created = validated_data.get('created', instance.created)
+        instance.body = validated_data.get('body', instance.body)
+        instance.owner = validated_data.get('owner', instance.owner)
+        instance.review = validated_data.get('review', instance.review)
+        instance.save()
+        return instance
     
     class Meta:
         model = Comment
