@@ -10,6 +10,8 @@ export default function Comment() {
   const[body, setBody] = useState('')
   const[errors, setErrors] = useState("")
 
+  
+
   // useEffect(() =>{
   //   fetch('http://localhost:8000/api/comments/', {
   //     method:'GET',
@@ -42,7 +44,8 @@ export default function Comment() {
  
  
 
- const base_url = "http://127.0.0.1:8000/api/comments/"
+ const base_url = `http://127.0.0.1:8000/api/comments/`
+
 
 
   const addComment = async (commentObject) => {
@@ -66,7 +69,7 @@ export default function Comment() {
     if (resp.status === 400) {
       setErrors(body)
     } else {
-      navigate("/reviews")
+      navigate("/Reviews")
     }
   }
   return (
