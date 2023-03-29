@@ -22,7 +22,7 @@ function BookReviews() {
     <div>
       <h1>What to read next?</h1>
       <div className='row'>
-         {bookReviews.filter((br,i) => br.summary != "" && (br[i]=== br[i+1]) ).map(bookreview =>(
+         {bookReviews.filter((br,i) => br.summary !== "").map(bookreview =>(
           <>
            <h2>{bookreview.book_title} by {bookreview.book_author}</h2>
            <p>{bookreview.summary}</p>
