@@ -15,7 +15,7 @@ const Home = () =>{
   useEffect(()=>{
   const getBooks = async () => {
     const response = await axios.get(`https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=dH2IAJjO7DCvwulScJeue1ZLhA11iysw`)
-    // console.log(response.data.results.books)
+    console.log(response.data.results.books)
     setBooks(response.data.results.books)
   }
     

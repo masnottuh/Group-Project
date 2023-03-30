@@ -9,6 +9,7 @@ import { AnimatePresence } from 'framer-motion'
 import NewReview from '../NavPages/NewReview';
 import Book from '../NavPages/Book';
 import Comment from '../NavPages/Comment';
+import BookReviews from '../NavPages/BookReviews';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -22,7 +23,9 @@ function AnimatedRoutes() {
           <Route path="/Reviews" element={<ReviewList/>}/>
           <Route path="/New" element={<NewReview/>}/>
           <Route path="/Book" element={<Book/>}/>
-          <Route path="/Comment" element={<Comment/>}/>
+          <Route path="/Comments" element={<Comment/>}/>
+          <Route path="/Bookreviews" element={<BookReviews/>}/>
+
     </Routes>
     </AnimatePresence>
   )

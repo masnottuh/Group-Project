@@ -28,14 +28,18 @@ class Review(models.Model):
 
 class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    body = models.TextField(blank=False)
+    body = models.TextField(blank=True)
     owner = models.ForeignKey('auth.User', related_name='comments', on_delete=models.CASCADE)
-    review = models.ForeignKey('Review', related_name='review_comments', on_delete=models.CASCADE)
+    review = models.ForeignKey('Review',related_name='review_comments', on_delete=models.CASCADE, default='')
 
     def __str__(self):
-        newline = '\n'
+    #    return self.body
         
-        return f"{self.owner} commented: {newline} {self.body}"
+        return f"{self.owner} commented: {self.body}"
+        # return '%s -%s' % (self.review.book.title, self.owner)
+        
+        
+        
     class Meta:
         ordering = ['created']
 

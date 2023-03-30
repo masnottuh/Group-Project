@@ -4,6 +4,53 @@ from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
 
+def create_data(apps, schema_editor):
+    IWillFindYou = apps.get_model('ReviewAPI','Book')
+    IWillFindYou (title="I Will Find You", author="Harlan Coben", description="A man imprisoned for murdering his 3-year-old son becomes convinced his son is still alive and plans an escape.").save()
+
+    HelloBeautiful = apps.get_model('ReviewAPI','Book')
+    HelloBeautiful (title="Hello Beautiful", author="Ann Napolitano").save()
+
+    LessonsInChemistry = apps.get_model('ReviewAPI','Book')
+    LessonsInChemistry (title="Lessons in Chemistry", author="Bonnie Garmus").save()
+
+    TomorrowAndTomorrowAndTomorrow = apps.get_model('ReviewAPI','Book')
+    TomorrowAndTomorrowAndTomorrow (title="Tomorrow and Tomorrow and Tomorrow", author="Gabrielle Zevin").save()
+
+    StormWatch = apps.get_model('ReviewAPI','Book')
+    StormWatch (title="Storm Watch", author="C.J. Box").save()
+
+    PineappleStreet = apps.get_model('ReviewAPI','Book')
+    PineappleStreet (title="Pineapple Street", author="Jenny Jackson").save()
+
+    WorthyOpponents = apps.get_model('ReviewAPI','Book')
+    WorthyOpponents(title="Worthy Opponents", author="Danielle Steel").save()
+
+    DemonCopperhead = apps.get_model('ReviewAPI','Book')
+    DemonCopperhead(title="Demon Copperhead", author="Barbara Kingsolver").save()
+
+    SomeoneElsesShoes = apps.get_model('ReviewAPI','Book')
+    SomeoneElsesShoes(title="Someone Else's Shoes", author="Jojo Moyes").save()
+
+    IHaveSomeQuestionsForYou = apps.get_model('ReviewAPI','Book')
+    IHaveSomeQuestionsForYou(title="I Have Some Questions For You", author="Rebecca Makkai").save()
+
+    RemarkablyBrightCreatures = apps.get_model('ReviewAPI','Book')
+    RemarkablyBrightCreatures(title="Remarkably Bright Creatures", author="Shelby Van Pelt").save()
+
+    ADayOfFallenNight = apps.get_model('ReviewAPI','Book')
+    ADayOfFallenNight(title="A Day Of Fallen Night", author="Samantha Shannon").save()
+
+    SoShallYouReap = apps.get_model('ReviewAPI','Book')
+    SoShallYouReap(title="So Shall You Reap", author="Donna Leon").save()
+
+    MadHoney = apps.get_model('ReviewAPI','Book')
+    MadHoney(title="Mad Honey", author="Jodi Picoult").save()
+
+    LondonSeanceSociety = apps.get_model('ReviewAPI','Book')
+    LondonSeanceSociety(title="London Seance Society", author="Sarah Penner").save()
+
+
 
 class Migration(migrations.Migration):
 
@@ -14,6 +61,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+    
         migrations.CreateModel(
             name='Book',
             fields=[
@@ -60,4 +108,5 @@ class Migration(migrations.Migration):
                 'ordering': ['created'],
             },
         ),
+        migrations.RunPython(create_data),
     ]
