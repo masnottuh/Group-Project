@@ -50,4 +50,4 @@ RUN python manage.py migrate
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /frontend/build /usr/share/nginx/html
 
-CMD nohup gunicorn --bind=0.0.0.0:8000 SWEtrainer.wsgi:application & nginx -g 'daemon off;'
+CMD nohup gunicorn --bind=0.0.0.0:8000 bookclub.wsgi:application & nginx -g 'daemon off;'
