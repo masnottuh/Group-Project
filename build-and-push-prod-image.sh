@@ -10,8 +10,8 @@
 ##############################
 
 BASE_URL=$1
-NEW_VERSION=$2
+NEW_VERSION=$1
 
-docker buildx build --platform linux/amd64 --build-arg REACT_APP_BASE_URL=$BASE_URL -t masnottuh/complete-group:$NEW_VERSION . --no-cache
+docker buildx build --platform linux/amd64 --build-arg REACT_APP_BASE_URL=$BASE_URL -t masnottuh/complete:$NEW_VERSION . --no-cache
 
-docker push masnottuh/complete-group:$NEW_VERSION
+docker push masnottuh/complete:$NEW_VERSION
