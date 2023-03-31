@@ -18,7 +18,7 @@ function BookReviews() {
       }
       getBookReviews()
 
-  }, [])
+  }, [NYT_KEY])
  
 
 return (

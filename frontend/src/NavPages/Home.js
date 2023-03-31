@@ -18,7 +18,7 @@ const Home = () =>{
   }
     
   getBooks()
-}, [])
+}, [NYT_KEY])
 
 return (
   <motion.main

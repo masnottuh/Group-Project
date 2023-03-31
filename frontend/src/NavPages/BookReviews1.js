@@ -17,7 +17,7 @@ function BookReviews1() {
      
     }
     getBookReviewss()
-  }, [])
+  }, [NYT_KEY])
 
 return (
     <div>
