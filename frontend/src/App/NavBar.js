@@ -12,6 +12,7 @@ function RenderNav() {
               <Nav className="me-auto">
                 <Nav.Link  href="Home">Home</Nav.Link>
                 <Nav.Link href="About">About</Nav.Link>
+                
                   {/* <Navbar.Text text-align={'right'}>
                     You are logged in
                   </Navbar.Text> */}

@@ -6,12 +6,12 @@ import Card from 'react-bootstrap/Card'
 
 function BookReviews1() {
 
-   
    const[bookReviewss, setBookReviewss] = useState([])
+   const NYT_KEY=process.env.REACT_APP_BOOKS_API_KEY
    
   useEffect(()=>{
     const getBookReviewss = async () => {
-      const response = await axios.get(`https://api.nytimes.com/svc/books/v3/reviews.json?author=John+Grisham&api-key=dH2IAJjO7DCvwulScJeue1ZLhA11iysw`)
+      const response = await axios.get(`https://api.nytimes.com/svc/books/v3/reviews.json?author=John+Grisham&api-key=${NYT_KEY}`)
       console.log(response.data.results)
       setBookReviewss(response.data.results.slice(4,27))
      

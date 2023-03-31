@@ -8,10 +8,11 @@ import BookReviews1 from './BookReviews1'
 function BookReviews() {
 
    const[bookReviews, setBookReviews] = useState([])
+   const NYT_KEY=process.env.REACT_APP_BOOKS_API_KEY
    
    useEffect(()=>{
     const getBookReviews = async () => {
-      const response = await axios.get(`https://api.nytimes.com/svc/books/v3/reviews.json?author=Stephen+King&api-key=dH2IAJjO7DCvwulScJeue1ZLhA11iysw`)
+      const response = await axios.get(`https://api.nytimes.com/svc/books/v3/reviews.json?author=Stephen+King&api-key=${NYT_KEY}`)
       console.log(response.data.results)
       setBookReviews(response.data.results.slice(26,63))
       }
