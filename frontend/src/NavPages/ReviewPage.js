@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
+import { REVIEW_URL } from '../constants';
 
 export default function ReviewPage() {
   const [ review, setReview ] = useState(null);
@@ -8,7 +9,7 @@ export default function ReviewPage() {
   const navigate = useNavigate()
 
   useEffect(() =>{
-    fetch(`http://localhost:8000/api/reviews/${id}`, {
+    fetch(`${REVIEW_URL}${id}`, {
       method:'GET',
    })
     .then(resp => resp.json())

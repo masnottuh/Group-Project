@@ -25,11 +25,15 @@ SECRET_KEY = 'django-insecure-(@ifvp+*^4vs&lsa^or86nkxhc+)x(t8_k_+l1s4kec-rk%n+&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+CORS_ORIGIN_WHITELIST = ['http://localhost:3000',
+                         'http://localhost:8000',
+                         'http://localhost:8080',
+                         'http://localhost'
+                        ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-
-ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -42,7 +46,7 @@ INSTALLED_APPS = [
     'ReviewAPI',
     'authentication',
     'rest_framework.authtoken',
-    'corsheaders'
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -67,7 +71,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
 ]
 
 ROOT_URLCONF = 'bookclub.urls'
@@ -100,7 +103,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 
 # Password validation

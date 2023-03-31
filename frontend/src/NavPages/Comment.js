@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
+import { COMMENT_URL } from '../constants'
 
 
 export default function Comment() {
@@ -13,7 +14,7 @@ export default function Comment() {
   
 
   // useEffect(() =>{
-  //   fetch('http://localhost:8000/api/comments/', {
+  //   fetch('http://localhost/api/comments/', {
   //     method:'GET',
   //   })
   //   .then(resp => resp.json())
@@ -44,7 +45,7 @@ export default function Comment() {
  
  
 
- const base_url = `http://127.0.0.1:8000/api/comments/`
+ const base_url = COMMENT_URL
 
 
 

@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
+import { BOOK_URL, REVIEW_URL } from '../constants'
 
 function NewReview() {
   const navigate = useNavigate()
@@ -11,7 +12,7 @@ function NewReview() {
   // const[title,setTitle] = useState('Select a title')
   
  useEffect(() =>{
-    fetch('http://localhost:8000/api/book/', {
+    fetch(BOOK_URL, {
       method:'GET',
    })
     .then(resp => resp.json())
@@ -48,7 +49,7 @@ function NewReview() {
  
  
 
- const base_url = "http://127.0.0.1:8000/api/reviews/"
+ const base_url = REVIEW_URL
 
 
   const addReview = async (reviewObject) => {
