@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import axios from 'axios';  
 import { Card } from 'react-bootstrap';  
 
-// import App from "../App/App";
+
 
 
 
 function BookSearch(props) {  
   const [book, setBook] = useState("");  
   const [result, setResult] = useState([]);  
+  const GOOGLE_KEY= process.env.REACT_APP_GOOGLE_API_KEY
   
   function handleChange(event) {  
       const book = event.target.value;  
@@ -18,7 +19,7 @@ function BookSearch(props) {
         event.preventDefault(); 
         var a = "https://www.googleapis.com/books/v1/volumes?q="
         var b = "&key="
-        var c = "AIzaSyCqi37mzRrzkBrDZDb0BX9_IarX5iMOT88"
+        var c = GOOGLE_KEY
         var d = "&maxResults=40"
         axios.get(a + book + b + c + d)  
             .then(data => {  

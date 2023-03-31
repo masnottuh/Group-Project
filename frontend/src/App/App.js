@@ -27,6 +27,7 @@ return (
               <Nav.Link href="Home">Home</Nav.Link>
               <Nav.Link href="About">About</Nav.Link>
               <Nav.Link href="Reviews">Book Reviews</Nav.Link>
+              <Nav.Link href="Bookreviews">Recommendations</Nav.Link>
               <Navbar.Collapse className="justify-content-end">
                 <button id="logout_button" onClick={logout_now}>
               Logout</button>
