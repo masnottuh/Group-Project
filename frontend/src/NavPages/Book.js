@@ -1,10 +1,11 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+import { BOOK_URL } from '../constants'
 
 export default function Book() {
   const[books, setBooks] = useState([])
   useEffect(() =>{
-    fetch('http://localhost:8000/api/book/', {
+    fetch(BOOK_URL, {
       method:'GET',
   
  })

@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'
 import Button from './Button'
+import { REVIEW_URL } from '../constants';
 
 
 function ReviewList() {
@@ -10,7 +11,7 @@ function ReviewList() {
   const[reviews, setReviews] = useState([])
   
   useEffect(() =>{
-    fetch('http://localhost:8000/api/reviews/', {
+    fetch(REVIEW_URL, {
       method:'GET',
    })
     .then(resp => resp.json())
