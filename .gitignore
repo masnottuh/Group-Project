@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 env
-bookclub.pem
+bc.pem
 
 # C extensions
 *.so
