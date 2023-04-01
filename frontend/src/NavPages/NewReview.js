@@ -80,33 +80,32 @@ function NewReview() {
   }
 
 return (
-    <div> 
+    <div style = {{height:"110vh"}}> 
             <img width="500" className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club  Logo" />
             <h3 className='search-form'><em>Write a Review</em></h3>
             {errors && <h4>{JSON.stringify(errors)}</h4>}
         
         
          
-      <div className="form=group">
-          <input type="text" className="form-control form_control-lg" placeholder="book title..." value={book_title} name="book_title" onChange={(e) => setBookTitle(e.target.value)}></input>
+      <div className="form=group search-form" >
         <FloatingLabel controlId="floatingSelect" label="Works with selects">
           <Form.Select onChange={handleChange} aria-label="Floating label select example">
                   <option>Select a title</option>
                   {allTitles.map((book_title) => <option value={book_title}>{book_title}</option>)}
-           
+                  <input type="text" className="form-control form_control-lg" placeholder="book title..." value={book_title} name="book_title" onChange={(e) => setBookTitle(e.target.value)}></input>          
                 {/* <select onChange={handleChange}> 
                   <option value="Select a title"> -- Select a title -- </option>
                   {allTitles.map((book_title) => <option value={book_title}>{book_title}</option>)}
                 </select> */}
-                </Form.Select>
-      </FloatingLabel>
-      </div>
-             
+          </Form.Select>
+          <div className="search-form">
+                  <input type="text" className="form-control form_control-sm" placeholder="review..." value={body} name="body" onChange={(e) => setBody(e.target.value)}></input>              
+                  </div>     
+        </FloatingLabel>
+      </div> 
         
           
-        <div className="form=group">
-           <input type="text" className="form-control form_control-lg" placeholder="review..." value={body} name="body" onChange={(e) => setBody(e.target.value)}></input>
-       </div>
+
 
 
         <div className='search-form'>

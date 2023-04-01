@@ -113,13 +113,32 @@ label {
     align-items: center;
   }
   .review-page{
-    padding-left: 30px;
+    padding-left: 35px;
+    background-color:rgb(145, 143, 137);
   }
+
+  .review-button{
+    padding-left: 0px;
+
+  }
+
+  .chat{
+    color: rgb(9, 16, 18);
+    background-color:rgb(145, 143, 137);
+    border-radius: 10px;
+    outline : none;
+  }
+
+  .chat-button{
+    background-color:rgb(145, 143, 137);
+    border : rgb(145, 143, 137);
+  }
+
   .button {
     background-color: #4caf50;
     border: none;
     color: white;
-    padding: 10px 15px;
+    padding: 5px 10px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
