@@ -32,7 +32,7 @@ return (
     <img width="500" className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club  Logo" />
     <div className="centered">
       <BookSearch />
-      <h1>Top 15 Best Sellers Fiction Books</h1>
+      <h1 style={{color:'#560c0c'}}>Top 15 Best Sellers Fiction Books</h1>
          <div className='row'>
           {books.map((book) =>{
             const{ book_image, buy_links,description, rank, title}= book
