@@ -55,8 +55,6 @@ return (
             <div>
             <h5>Comments:</h5>
             </div>
-
-
             <div>{(r.review_comments).length === 0 ?'no comments yet':r.review_comments.map(comment =>
              <>
              <p>{comment}</p>
