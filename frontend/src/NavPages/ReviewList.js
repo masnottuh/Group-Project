@@ -50,17 +50,21 @@ return (
             <h3>{r.book} {r.book_title}</h3>
             <img src={require("../images/icons8-customer-48.png")} alt="user" />
             by {r.owner}• Reviewed on {(r.created.slice(0,10))}
-            <em><p>{r.body}</p></em>
+            <em><p className="review-text">{r.body}</p></em>
             <br></br>
             <div>
-            <h5>Comments:</h5>
+
             </div>
+=======
+
+
+
             <div>{(r.review_comments).length === 0 ?'no comments yet':r.review_comments.map(comment =>
              <>
              <p>{comment}</p>
              </>
              )}
-             <br></br>
+             {/* <br></br> */}
              <Link to="/Comments">
             <div className = "review-button">
              <button className="chat-button">
@@ -70,7 +74,8 @@ return (
             </div>
              </Link>
            </div>
-             <hr></hr>
+             <hr className="hr-edit"></hr>
+            </div>
             </div>
           )
         })}

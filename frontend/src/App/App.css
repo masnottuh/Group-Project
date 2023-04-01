@@ -43,6 +43,18 @@ label {
   color: rgb(34, 34, 34);
 }
 
+.nav-banner{
+  background-color: #51789d;
+  color :rgb(243, 248, 250);
+}
+
+.nav-text{
+  color :rgb(243, 248, 250)
+}
+
+.nav-text:hover{
+  color : rgb(172, 24, 24)
+}
 /* # book Card styling */
 
 .books-card-info{
@@ -108,30 +120,42 @@ label {
   }
   .review-title{
     min-height: 10vh;
+    font-size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .review-page{
     padding-left: 35px;
-    background-color:rgb(145, 143, 137);
+    padding-top: 20px;
+    background-color:rgb(235, 225, 194);
   }
 
   .review-button{
     padding-left: 0px;
+    padding-bottom: 10px;
 
   }
 
   .chat{
     color: rgb(9, 16, 18);
-    background-color:rgb(145, 143, 137);
+    background-color:rgb(235, 225, 194);
     border-radius: 10px;
     outline : none;
   }
 
   .chat-button{
-    background-color:rgb(145, 143, 137);
-    border : rgb(145, 143, 137);
+    background-color:rgb(235, 225, 194);
+    border : rgb(235, 225, 194);
+  }
+
+  .hr-edit{
+    padding: 0px;
+    margin: 1px;
+  }
+
+  .review-text{
+    font-size: 20px;
   }
 
   .button {
