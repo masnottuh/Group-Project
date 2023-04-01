@@ -19,15 +19,15 @@ const { token, setToken } = useToken(); //simple token auth for now
 return (
 
     <div className="wrapper">
-      <Navbar bg="light" expand="lg">
+      <Navbar className='nav-banner' expand="lg">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="Home">Home</Nav.Link>
-              <Nav.Link href="About">About</Nav.Link>
-              <Nav.Link href="Reviews">Book Reviews</Nav.Link>
-              <Nav.Link href="Bookreviews">Recommendations</Nav.Link>
+              <Nav.Link className="nav-text" href="Home">Home</Nav.Link>
+              <Nav.Link  className="nav-text" href="About">About</Nav.Link>
+              <Nav.Link  className="nav-text"  href="Reviews">Book Reviews</Nav.Link>
+              <Nav.Link  className="nav-text"  href="Bookreviews">Recommendations</Nav.Link>
               <Navbar.Collapse className="justify-content-end">
                 <button id="logout_button" onClick={logout_now}>
               Logout</button>
