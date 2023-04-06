@@ -42,7 +42,7 @@ RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools      
 
 COPY ./backend/requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 COPY ./backend .
 RUN python manage.py makemigrations
 RUN python manage.py migrate
