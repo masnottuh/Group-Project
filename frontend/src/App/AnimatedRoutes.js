@@ -10,6 +10,8 @@ import NewReview from '../NavPages/NewReview';
 import Book from '../NavPages/Book';
 import Comment from '../NavPages/Comment';
 import BookReviews from '../NavPages/BookReviews';
+import ReviewPage from '../NavPages/ReviewPage';
+
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -21,6 +23,7 @@ function AnimatedRoutes() {
           <Route path="/Home" element={<Home/>}/>
           <Route path="/About" element={<About/>}/>
           <Route path="/Reviews" element={<ReviewList/>}/>
+          <Route path='/:id/' exact element={<ReviewPage />} />
           <Route path="/New" element={<NewReview/>}/>
           <Route path="/Book" element={<Book/>}/>
           <Route path="/Comments" element={<Comment/>}/>
