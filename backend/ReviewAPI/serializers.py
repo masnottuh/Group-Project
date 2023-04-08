@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from ReviewAPI.models import Review, Comment, Room, Book
+from ReviewAPI.models import Review, Comment,Book
 
 
 
@@ -26,6 +26,10 @@ class ReviewSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     book = serializers.ReadOnlyField(source='book.title')
     review_comments = serializers.StringRelatedField(many=True, read_only=True)
+    id = serializers.IntegerField(read_only=True)
+   
+
+   
    
 
     def create(self, validated_data):
@@ -43,11 +47,13 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = ['id', 'book_title', 'body', 'owner', 'book', 'review_comments','created']
+        
 
 
 class CommentSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     review = serializers.ReadOnlyField(source='review_comments')
+    review_comments = serializers.StringRelatedField(many=True, read_only=True)
     
     def create(self, validated_data):
         return Comment.objects.create(**validated_data)
@@ -64,7 +70,7 @@ class CommentSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Comment
-        fields = ['id', 'body', 'owner', 'review']
+        fields = ['id', 'created','body', 'owner', 'review','review_comments']
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -77,9 +83,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'reviews','review_comments','book_reviews']
 
 
-class RoomSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Room
-        fields = ['id', 'code', 'host', 'created_at']
+
 
 

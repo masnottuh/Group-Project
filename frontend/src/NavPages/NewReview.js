@@ -4,6 +4,7 @@ import { BOOK_URL, REVIEW_URL } from '../constants'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
+
 function NewReview() {
   const navigate = useNavigate()
   const[body, setBody] = useState("")
@@ -40,26 +41,19 @@ function NewReview() {
       // title: title,
       // book: book,
       book_title: book_title
-      
-     }
+      }
     console.log(reviewObject)
     addReview(reviewObject)
-   
   }
  const token = window.sessionStorage.getItem('token')
  const result = JSON.parse(token).token
- 
- 
-
  const base_url = REVIEW_URL
 
-
-  const addReview = async (reviewObject) => {
+const addReview = async (reviewObject) => {
     console.log(result)
     console.log(token)
     console.log(JSON.parse(token))
-   
-  
+    
     const url = `${base_url}`
     const context = {
       method: 'POST',
@@ -69,7 +63,7 @@ function NewReview() {
        },
       body: JSON.stringify(reviewObject)
     }
-   
+    console.log(context.body)
     const resp = await fetch(url, context)
     const body = await resp.json()
     if (resp.status === 400) {
@@ -80,19 +74,17 @@ function NewReview() {
   }
 
 return (
-    <div style = {{height:"110vh"}}> 
-            <img width="500" className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club  Logo" />
-            <h3 className='search-form'><em>Write a Review</em></h3>
-            {errors && <h4>{JSON.stringify(errors)}</h4>}
+      <div style = {{height:"110vh"}}> 
+        <img width="500" className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club  Logo" />
+        <h3 className='search-form'><em>Write a Review</em></h3>
+        {errors && <h4>{JSON.stringify(errors)}</h4>}
         
-        
-         
-      <div className="form=group search-form" >
-        <FloatingLabel controlId="floatingSelect" label="Works with selects">
+        <div className="form=group search-form" >
+        <FloatingLabel       controlId="floatingSelect" label="Book titles">
           <Form.Select onChange={handleChange} aria-label="Floating label select example">
-                  <option>Select a title</option>
-                  {allTitles.map((book_title) => <option value={book_title}>{book_title}</option>)}
-                  <input type="text" className="form-control form_control-lg" placeholder="book title..." value={book_title} name="book_title" onChange={(e) => setBookTitle(e.target.value)}></input>          
+           <option>Select a title</option>
+            {allTitles.map((book_title) => <option value={book_title}>{book_title}</option>)}
+            <input type="text" className="form-control form_control-lg" placeholder="book title..." value={book_title} name="book_title" onChange={(e) => setBookTitle(e.target.value)}></input>          
                 {/* <select onChange={handleChange}> 
                   <option value="Select a title"> -- Select a title -- </option>
                   {allTitles.map((book_title) => <option value={book_title}>{book_title}</option>)}
@@ -100,22 +92,15 @@ return (
           </Form.Select>
           <div className="search-form">
                   <input type="text" className="form-control form_control-sm" placeholder="review..." value={body} name="body" onChange={(e) => setBody(e.target.value)}></input>              
-                  </div>     
+          </div>     
         </FloatingLabel>
       </div> 
-        
-          
-
-
-
         <div className='search-form'>
           <button className="search-button" onClick={handleSubmit}>Submit</button>
         </div>
         
-   
     </div> 
-
-    )
+  )
 }
 
 export default NewReview

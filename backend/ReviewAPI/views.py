@@ -1,7 +1,7 @@
 from rest_framework import generics
 from ReviewAPI import serializers
 from django.contrib.auth.models import User
-from ReviewAPI.models import Review, Comment, Room, Book
+from ReviewAPI.models import Review, Comment, Book
 from rest_framework import permissions
 from ReviewAPI.permissions import IsOwnerOrReadOnly
 from rest_framework.authentication import SessionAuthentication,TokenAuthentication
@@ -23,17 +23,19 @@ class ReviewList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly] 
     authentication_classes = [TokenAuthentication, SessionAuthentication]
 
- 
-
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-
+    
+ 
 #get, update, and delete for a single review
 class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Review.objects.all()
     serializer_class = serializers.ReviewSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
+    authentication_classes = [TokenAuthentication, SessionAuthentication]
+    def perform_update(self, serializer):
+        serializer.save()
 
 class CommentList(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
@@ -43,6 +45,16 @@ class CommentList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+    # def get_queryset(self):
+    #     """
+    #     This view should return a list of all the reviews
+    #     for the currently authenticated user.
+    #     """
+    #     user = self.request.user
+    #     return Comment.objects.filter(owner=user)
+    # def perform_create(self,serializer):
+    #     serializer.save(owner = self.request.user)
 
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
@@ -68,6 +80,3 @@ class BookDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.BookSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-class RoomView(generics.ListAPIView):
-    queryset = Room.objects.all()
-    serializer_class = serializers.RoomSerializer
