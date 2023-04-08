@@ -20,14 +20,14 @@ function AnimatedRoutes() {
     <Routes location={location}key={location.pathname}>
           <Route path="/" element={<Home/>}/>
           <Route path="/auth" element={<Auth/>}/>
-          <Route path="/Home" element={<Home/>}/>
-          <Route path="/About" element={<About/>}/>
-          <Route path="/Reviews" element={<ReviewList/>}/>
-          <Route path='/:id/' exact element={<ReviewPage />} />
+          <Route path="/Home" exact element={<Home/>}/>
+          <Route path="/About" exact element={<About/>}/>
+          <Route path="/Reviews" exact element={<ReviewList/>}/>
+          <Route path=':id/' exact element={<ReviewPage />} />
           <Route path="/New" element={<NewReview/>}/>
           <Route path="/Book" element={<Book/>}/>
           <Route path="/Comments" element={<Comment/>}/>
-          <Route path="/Bookreviews" element={<BookReviews/>}/>
+          <Route path="/Bookreviews"exact element={<BookReviews/>}/>
 
     </Routes>
     </AnimatePresence>

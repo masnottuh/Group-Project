@@ -2,8 +2,6 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from ReviewAPI.models import Review, Comment,Book
 
-
-
 from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -80,7 +78,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'reviews','review_comments','book_reviews']
+        fields = ['id', 'username', 'password','reviews','review_comments','book_reviews']
 
 
 

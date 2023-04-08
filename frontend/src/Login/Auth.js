@@ -12,50 +12,59 @@ async function loginUser(credentials) {
     },
     body: JSON.stringify(credentials)
   })
-    .then(data => data.json())
- }
- 
- async function signupUser(credentials) {
+  .then(data => data.json())
+}
+
+  async function signupUser(credentials) {
    return fetch(SIGNUP_URL, {
      method: 'POST',
      headers: {
        'Content-Type': 'application/json'
      },
      body: JSON.stringify(credentials)
-   })
+    })
      .then(data => data.json())
   }
-
+  
+  
+  
 export default function Auth({setToken}) {
-
-  let [authMode, setAuthMode] = useState("signin")
+  
+let [authMode, setAuthMode] = useState("signin")
 
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
   const handleLogin = async e => {
     e.preventDefault();
+    
     const token = await loginUser({
       username,
       password
     });
+    
     setToken(token);
   }
+ 
   
   const handleSignup = async e => {
     e.preventDefault();
+  
     const token = await signupUser({
       username,
       password
     });
     setToken(token);
-  }
+}
+
 
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
   }
 
+  
   if (authMode === "signin") {
+ 
     return (
       <div className="Auth-form-container">
         <form className="Auth-form" onSubmit={handleLogin}>
@@ -89,13 +98,13 @@ export default function Auth({setToken}) {
               <button type="submit" className="btn btn-primary">
                 Submit
               </button>
-            </div>
+             </div>
           </div>
         </form>
       </div>
     )
   }
-
+  
   return (
     <div className="Auth-form-container">
       <form className="Auth-form" onSubmit={handleSignup}>
@@ -147,3 +156,24 @@ export default function Auth({setToken}) {
 Auth.propTypes = {
   setToken: PropTypes.func.isRequired
 };
+
+
+// const loginUser = async(credentials)=> {
+//   console.log(JSON.stringify(credentials));
+//   const url= TOKEN_URL 
+//   const context ={
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(credentials)
+//   }
+//   const resp = await fetch(url,context)
+//   const body = await resp.json()
+//   if(resp.status === 400) {
+//     setErrors(body)
+//   }else{
+//     navigate("/auth")
+//   }
+
+//   }
