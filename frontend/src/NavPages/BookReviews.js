@@ -9,6 +9,7 @@ function BookReviews() {
 
    const[bookReviews, setBookReviews] = useState([])
    const NYT_KEY=process.env.REACT_APP_BOOKS_API_KEY
+   console.log(NYT_KEY)
    
    useEffect(()=>{
     const getBookReviews = async () => {

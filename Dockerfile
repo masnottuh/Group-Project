@@ -16,6 +16,9 @@ WORKDIR /frontend
 # development, localhost; for production, your EC2's IP address
 ARG REACT_APP_BASE_URL=localhost
 ENV REACT_APP_BASE_URL=$REACT_APP_BASE_URL
+ENV REACT_APP_BOOKS_API_KEY=sP13SdYySeTOurk238E2fN8uwM8pTHF3
+ENV REACT_APP_GOOGLE_API_KEY=AIzaSyCqi37mzRrzkBrDZDb0BX9_IarX5iMOT88
+
 
 COPY ./frontend/package.json .
 RUN npm install
