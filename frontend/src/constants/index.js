@@ -28,19 +28,22 @@
 // export const COMMENT_URL = 'http://34.221.117.152//api/api/comments/';
 
 
+// export const API_URL = "http://34.221.117.152/api/";
 
+// export const SIGNUP_URL = "http://34.221.117.152/authentication/signup";
 
+// export const TOKEN_URL = "http://34.221.117.152/authentication/get-token";
 
-export const API_URL = "http://localhost:8000/api/";
+// export const BOOK_URL = 'http://34.221.117.152/api/book/';
 
-export const SIGNUP_URL = "http://localhost:8000/authentication/signup";
+// export const REVIEW_URL = 'http://34.221.117.152/api/reviews/';
 
-export const TOKEN_URL = "http://localhost:8000/authentication/get-token";
+// export const TOKEN_URL = "http://localhost:8000/authentication/get-token";
 
-export const BOOK_URL = 'http://localhost:8000/api/book/';
+// export const BOOK_URL = 'http://localhost:8000/api/book/';
 
-export const REVIEW_URL = 'http://localhost:8000/api/reviews/';
+// export const REVIEW_URL = 'http://localhost:8000/api/reviews/';
 
-export const COMMENT_URL = 'http://localhost:8000/api/comments/';
+// export const COMMENT_URL = 'http://localhost:8000/api/comments/';
 
 

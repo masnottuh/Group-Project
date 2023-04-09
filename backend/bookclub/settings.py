@@ -27,10 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ORIGIN_WHITELIST = ['http://localhost:3000',
-                         'http://localhost:8000',
-                         'http://localhost:8080',
-                         'http://localhost'
+CORS_ORIGIN_WHITELIST = ['http://34.221.117.152:3000',
+                         'http://34.221.117.152:8000',
+                         'http://34.221.117.152:8080',
+                         'http://34.221.117.152'
                         ]
 
 CORS_ORIGIN_ALLOW_ALL = True
