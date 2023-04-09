@@ -47,12 +47,13 @@ class CommentList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = serializers.CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
+    def perform_update(self, serializer):
+        serializer.save()
 
 
 class BookList(generics.ListCreateAPIView):
@@ -67,12 +68,3 @@ class BookDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = serializers.BookSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
-
-
-
-
-
-
-
-

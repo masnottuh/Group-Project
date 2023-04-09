@@ -29,15 +29,13 @@ class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     body = models.TextField(blank=True)
     owner = models.ForeignKey('auth.User', related_name='comments', on_delete=models.CASCADE)
-    review = models.ForeignKey('Review',related_name='review_comments', on_delete=models.CASCADE, null=True, blank=True)
+    review = models.ForeignKey('Review',related_name='review_comments', on_delete=models.CASCADE)
 
     def __str__(self):
     #    return self.body
         
         return f"{self.owner} commented: {self.body}"
-        # return '%s -%s' % (self.review.book.title, self.owner)
-        
-        
+        # return '%s -%s' % (self.review.book_title, self.owner)
         
     class Meta:
         ordering = ['created']

@@ -12,8 +12,7 @@ urlpatterns = [
     path('comments/<int:pk>', views.CommentDetail.as_view()),
     path('book/', views.BookList.as_view()),
     path('book/<int:pk>', views.BookDetail.as_view()),
-    # path('book', BookView.as_view()),
-    # path('book/<int:pk>', BookView.as_view()),
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
