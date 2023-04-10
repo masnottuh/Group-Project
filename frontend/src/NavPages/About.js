@@ -32,7 +32,7 @@ transition={{duration: 1.3,ease: [0.6, -0.05, 0.01, 0.99]}}>
       <Card.Body>
         <Card.Title>Lizuca</Card.Title>
         <Card.Text>
-          <p>Favorite Book: Band of Brothers</p>
+          <p>Favorite Book: A Portrait of an Artist as a Young Man</p>
           <p>liz@example.com</p>
         </Card.Text>
       </Card.Body>

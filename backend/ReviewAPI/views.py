@@ -52,6 +52,8 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
+    authentication_classes = [TokenAuthentication, SessionAuthentication]
+    
     def perform_update(self, serializer):
         serializer.save()
 

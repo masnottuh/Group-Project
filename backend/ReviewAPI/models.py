@@ -29,7 +29,7 @@ class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     body = models.TextField(blank=True)
     owner = models.ForeignKey('auth.User', related_name='comments', on_delete=models.CASCADE)
-    review = models.ForeignKey('Review',related_name='review_comments', on_delete=models.CASCADE)
+    review = models.ForeignKey('Review',related_name='review_comments', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
     #    return self.body
