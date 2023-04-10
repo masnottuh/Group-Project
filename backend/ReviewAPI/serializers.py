@@ -2,8 +2,6 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from ReviewAPI.models import Review, Comment,Book
 
-
-
 from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -28,10 +26,6 @@ class ReviewSerializer(serializers.ModelSerializer):
     review_comments = serializers.StringRelatedField(many=True, read_only=True)
     id = serializers.IntegerField(read_only=True)
    
-
-   
-   
-
     def create(self, validated_data):
         return Review.objects.create(**validated_data)
 
@@ -41,6 +35,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         instance.body = validated_data.get('body', instance.body)
         instance.owner = validated_data.get('owner', instance.owner)
         instance.book = validated_data.get('book', instance.book)
+        instance.review_comments = validated_data.get('review_comments', instance.review_comments)
         instance.save()
         return instance
    
@@ -52,8 +47,9 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
-    review = serializers.ReadOnlyField(source='review_comments')
+    review = serializers.ReadOnlyField(source='review.body')
     review_comments = serializers.StringRelatedField(many=True, read_only=True)
+    id = serializers.IntegerField(read_only=True)
     
     def create(self, validated_data):
         return Comment.objects.create(**validated_data)
@@ -65,22 +61,25 @@ class CommentSerializer(serializers.ModelSerializer):
         instance.body = validated_data.get('body', instance.body)
         instance.owner = validated_data.get('owner', instance.owner)
         instance.review = validated_data.get('review', instance.review)
+        instance.review_comments = validated_data.get('review_comments', instance.review_comments)
         instance.save()
         return instance
     
     class Meta:
         model = Comment
-        fields = ['id', 'created','body', 'owner', 'review','review_comments']
+        # fields = ['id', 'created','body', 'owner', 'review','review_comments']
+        fields = "__all__"
 
 
 class UserSerializer(serializers.ModelSerializer):
     reviews = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    comments = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     review_comments = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     book_reviews = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'reviews','review_comments','book_reviews']
+        fields = ['id', 'username', 'password','reviews','review','comments','review_comments','book_reviews']
 
 
 

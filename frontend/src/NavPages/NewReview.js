@@ -5,16 +5,15 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
 
+
 function NewReview() {
   const navigate = useNavigate()
-  const[body, setBody] = useState("")
-  const[book_title, setBookTitle] = useState('')
-  const[errors, setErrors] = useState("")
   const[books, setBooks] = useState([])
-  // const[book, setBook] = useState('Select a title')
-  // const[title,setTitle] = useState('Select a title')
-  
- useEffect(() =>{
+  const[body, setBody] = useState('')
+  const[book_title, setBookTitle] = useState('')
+  const[errors, setErrors] = useState('')
+ 
+  useEffect(() =>{
     fetch(BOOK_URL, {
       method:'GET',
    })
@@ -35,11 +34,8 @@ function NewReview() {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-   
-    const reviewObject = {
+   const reviewObject = {
       body: body,
-      // title: title,
-      // book: book,
       book_title: book_title
       }
     console.log(reviewObject)
@@ -66,6 +62,7 @@ const addReview = async (reviewObject) => {
     console.log(context.body)
     const resp = await fetch(url, context)
     const body = await resp.json()
+    console.log("Body",body)
     if (resp.status === 400) {
       setErrors(body)
     } else {
@@ -78,17 +75,12 @@ return (
         <img width="500" className="rounded mx-auto d-block" src={require("../images/bc_logo.png")} alt="Book Club  Logo" />
         <h3 className='search-form'><em>Write a Review</em></h3>
         {errors && <h4>{JSON.stringify(errors)}</h4>}
-        
         <div className="form=group search-form" >
         <FloatingLabel       controlId="floatingSelect" label="Book titles">
-          <Form.Select onChange={handleChange} aria-label="Floating label select example">
+        <Form.Select onChange={handleChange}          aria-label="Floating label select example">
            <option>Select a title</option>
             {allTitles.map((book_title) => <option value={book_title}>{book_title}</option>)}
             <input type="text" className="form-control form_control-lg" placeholder="book title..." value={book_title} name="book_title" onChange={(e) => setBookTitle(e.target.value)}></input>          
-                {/* <select onChange={handleChange}> 
-                  <option value="Select a title"> -- Select a title -- </option>
-                  {allTitles.map((book_title) => <option value={book_title}>{book_title}</option>)}
-                </select> */}
           </Form.Select>
           <div className="search-form">
                   <input type="text" className="form-control form_control-sm" placeholder="review..." value={body} name="body" onChange={(e) => setBody(e.target.value)}></input>              
@@ -98,21 +90,8 @@ return (
         <div className='search-form'>
           <button className="search-button" onClick={handleSubmit}>Submit</button>
         </div>
-        
     </div> 
   )
 }
 
 export default NewReview
-//   return (
-//     <FloatingLabel controlId="floatingSelect" label="Works with selects">
-//       <Form.Select aria-label="Floating label select example">
-//         <option>Open this select menu</option>
-//         <option value="1">One</option>
-//         <option value="2">Two</option>
-//         <option value="3">Three</option>
-//       </Form.Select>
-//     </FloatingLabel>
-//   );
-// }
-

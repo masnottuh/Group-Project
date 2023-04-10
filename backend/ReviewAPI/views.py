@@ -46,26 +46,17 @@ class CommentList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-    # def get_queryset(self):
-    #     """
-    #     This view should return a list of all the reviews
-    #     for the currently authenticated user.
-    #     """
-    #     user = self.request.user
-    #     return Comment.objects.filter(owner=user)
-    # def perform_create(self,serializer):
-    #     serializer.save(owner = self.request.user)
 
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = serializers.CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
+    authentication_classes = [TokenAuthentication, SessionAuthentication]
+    
+    def perform_update(self, serializer):
+        serializer.save()
 
-# class BookView(generics.ListAPIView):
-#     queryset = Book.objects.all()
-#     serializer_class = serializers.BookSerializer
-#     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class BookList(generics.ListCreateAPIView):
     queryset = Book.objects.all()
@@ -79,4 +70,3 @@ class BookDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = serializers.BookSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-

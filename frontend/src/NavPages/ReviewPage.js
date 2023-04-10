@@ -45,7 +45,7 @@ function deleteReview(id){
       console.log(res.data);  
       navigate('/Reviews')
     })
-   
+  
   }
 return(
   <div>
