@@ -72,9 +72,9 @@ let [authMode, setAuthMode] = useState("signin")
           <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width='100%'/>
             <div className="text-center">
               Not registered yet?{" "}
-              <span className="link-primary" onClick={changeAuthMode}>
+              <a><span className="link-primary" onClick={changeAuthMode}>
                 Sign Up
-              </span>
+              </span></a>
             </div>
             <div className="form-group mt-3">
               <label>Username</label>
@@ -112,9 +112,9 @@ let [authMode, setAuthMode] = useState("signin")
         <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width='100%'/>
           <div className="text-center">
             Already registered?{" "}
-            <span className="link-primary" onClick={changeAuthMode}>
+            <a><span className="link-primary" onClick={changeAuthMode}>
               Sign In
-            </span>
+            </span></a>
           </div>
           <div className="form-group mt-3">
             <label>Username</label>
@@ -143,7 +143,7 @@ let [authMode, setAuthMode] = useState("signin")
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary" onClick={changeAuthMode}>
               Submit
             </button>
           </div>
