@@ -63,9 +63,9 @@ export default function Auth({setToken}) {
           <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width='100%'/>
             <div className="text-center">
               Not registered yet?{" "}
-              <span className="link-primary" onClick={changeAuthMode}>
+              <a><span className="link-primary" onClick={changeAuthMode}>
                 Sign Up
-              </span>
+              </span></a>
             </div>
             <div className="form-group mt-3">
               <label>Username</label>
@@ -103,9 +103,9 @@ export default function Auth({setToken}) {
         <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width='100%'/>
           <div className="text-center">
             Already registered?{" "}
-            <span className="link-primary" onClick={changeAuthMode}>
+            <a><span className="link-primary" onClick={changeAuthMode}>
               Sign In
-            </span>
+            </span></a>
           </div>
           <div className="form-group mt-3">
             <label>Username</label>
