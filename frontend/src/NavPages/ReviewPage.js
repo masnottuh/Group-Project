@@ -20,7 +20,7 @@ const getReview = async() =>{
   console.log(token)
   const result = JSON.parse(token).token
   
-  const response = await fetch(`http://127.0.0.1:8000/api/reviews/${id}`, {
+  const response = await fetch(`${REVIEW_URL}${id}`, {
     method: "GET",
     headers: {
     'Content-Type': 'application/json',
