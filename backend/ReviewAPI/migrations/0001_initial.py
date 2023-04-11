@@ -50,6 +50,9 @@ def create_data(apps, schema_editor):
     LondonSeanceSociety = apps.get_model('ReviewAPI','Book')
     LondonSeanceSociety(title="London Seance Society", author="Sarah Penner").save()
 
+    # Atouchingportraitoffamily,loveandsisterhood  = apps.get_model('ReviewAPI','Review')
+    # Atouchingportraitoffamily,loveandsisterhood (body="A touching portrait of family,love and sisterhood").save()
+
 
 
 class Migration(migrations.Migration):

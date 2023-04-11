@@ -26,21 +26,23 @@ export default function Comment() {
   }, [])
   // console.log(reviews)
 
-  const allReviews = reviews.map(review => review.body)
+  // const allReviews = reviews.map(review => review.body)
   function handleChange(event) {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setReview(event.target.value);
   }
 
   useEffect(() => {
-    console.log("Value of review in State is: ", review);
+    // console.log("Value of review in State is: ", review);
   }, [review]);
 
+ 
   const handleSubmit = (e) => {
+    const review_id= parseInt(review)
     e.preventDefault()
   const commentObject = {
     body: body,
-    review: review
+    review: review_id
   }
   console.log("the comment object",commentObject)
   addComment(commentObject)
@@ -52,9 +54,9 @@ export default function Comment() {
 
 
 const addComment = async (commentObject) => {
-    console.log(result)
-    console.log(token)
-    console.log(JSON.parse(token))
+    // console.log(result)
+    // console.log(token)
+    // console.log(JSON.parse(token))
     // console.log("the comment object bellow",commentObject)
     const url = `${base_url}`
     const context = {
@@ -65,6 +67,7 @@ const addComment = async (commentObject) => {
        },
       body: JSON.stringify(commentObject)
     }
+    console.log(context)
     console.log(context.body)
     const resp = await fetch(url, context)
     const body = await resp.json()
@@ -87,8 +90,10 @@ const addComment = async (commentObject) => {
       <FloatingLabel       controlId="floatingSelect" label="Book titles">
         <Form.Select onChange={handleChange} aria-label="Floating label select example">
          <option>Choose a book review</option>
-          {allReviews.map((review) => <option value={review}>{review}</option>)}
-          <input type="text" className="form-control form_control-lg" placeholder="review..." value={review} name="review" onChange={(e) => setReview(e.target.value)}></input>          
+          {/* {allReviews.map((review) => <option value={review}>{review}</option>)} */}
+          {reviews.map((review) => <option value={review.id}>{review.body}</option>)}
+         
+          <input type="text" className="form-control form_control-lg" placeholder="review..." value={review} name="review" onChange={(e) => setReview(parseInt(e.target.value))}></input>          
        </Form.Select>
         <div className="search-form">
                 <input type="text" className="form-control form_control-sm" placeholder="comment..." value={body} name="body" onChange={(e) => setBody(e.target.value)}></input>              

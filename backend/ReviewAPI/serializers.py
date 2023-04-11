@@ -27,6 +27,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
    
     def create(self, validated_data):
+        print(validated_data)
         return Review.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
@@ -52,6 +53,7 @@ class CommentSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     
     def create(self, validated_data):
+        print(validated_data)
         return Comment.objects.create(**validated_data)
 
 

@@ -30,10 +30,12 @@ async function loginUser(credentials) {
   
 export default function Auth({setToken}) {
   
-let [authMode, setAuthMode] = useState("signin")
+const [authMode, setAuthMode] = useState("signin")
+
 
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const [email, setEmail] = useState();
 
   const handleLogin = async e => {
     e.preventDefault();
@@ -52,6 +54,7 @@ let [authMode, setAuthMode] = useState("signin")
   
     const token = await signupUser({
       username,
+      email,
       password
     });
     setToken(token);
@@ -72,9 +75,9 @@ let [authMode, setAuthMode] = useState("signin")
           <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width='100%'/>
             <div className="text-center">
               Not registered yet?{" "}
-              <a><span className="link-primary" onClick={changeAuthMode}>
+              <button type="submit" className="btn btn-primary"  onClick={changeAuthMode}>
                 Sign Up
-              </span></a>
+              </button>
             </div>
             <div className="form-group mt-3">
               <label>Username</label>
@@ -112,9 +115,9 @@ let [authMode, setAuthMode] = useState("signin")
         <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width='100%'/>
           <div className="text-center">
             Already registered?{" "}
-            <a><span className="link-primary" onClick={changeAuthMode}>
+            <button type="submit" className="btn btn-primary" onClick={changeAuthMode}>
               Sign In
-            </span></a>
+            </button>
           </div>
           <div className="form-group mt-3">
             <label>Username</label>
@@ -131,6 +134,7 @@ let [authMode, setAuthMode] = useState("signin")
               type="email"
               className="form-control mt-1"
               placeholder="Email Address"
+              onChange={e => setEmail(e.target.value)}
             />
           </div>
           <div className="form-group mt-3">
@@ -151,7 +155,8 @@ let [authMode, setAuthMode] = useState("signin")
       </form>
     </div>
   )
-}
+  }
+
 
 Auth.propTypes = {
   setToken: PropTypes.func.isRequired

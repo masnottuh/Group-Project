@@ -44,7 +44,8 @@ class CommentList(generics.ListCreateAPIView):
     authentication_classes = [TokenAuthentication, SessionAuthentication]
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        print(self.request)
+        serializer.save(owner=self.request.user,) #review=self.request.review)
 
 
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):

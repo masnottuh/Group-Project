@@ -11,7 +11,8 @@ const {id} = useParams()
 const navigate = useNavigate()
 
 useEffect(() => {
-      getReview()
+    getReview()
+    // eslint-disable-next-line
     }, [id])
 
 const getReview = async() =>{
