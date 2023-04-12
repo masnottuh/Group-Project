@@ -24,6 +24,7 @@ async function loginUser(credentials) {
      body: JSON.stringify(credentials)
     })
      .then(data => data.json())
+    
   }
   
   
@@ -54,13 +55,16 @@ let [authMode, setAuthMode] = useState("signin")
       username,
       password
     });
-    setToken(token);
+
+    setTimeout(handleLogin,500)
 }
 
 
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
   }
+
+  // const prevent = async e => {e.preventDefault();}
 
   
   if (authMode === "signin") {
@@ -72,9 +76,9 @@ let [authMode, setAuthMode] = useState("signin")
           <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width='100%'/>
             <div className="text-center">
               Not registered yet?{" "}
-              <a><span className="link-primary" onClick={changeAuthMode}>
+              <a href="#0" type="text" onClick={changeAuthMode}>
                 Sign Up
-              </span></a>
+              </a>
             </div>
             <div className="form-group mt-3">
               <label>Username</label>
@@ -112,9 +116,9 @@ let [authMode, setAuthMode] = useState("signin")
         <img src={require("../images/bc_logo.png")} alt="Book Club Logo" width='100%'/>
           <div className="text-center">
             Already registered?{" "}
-            <a><span className="link-primary" onClick={changeAuthMode}>
+            <a href="#0" type="button" onClick={changeAuthMode}>
               Sign In
-            </span></a>
+            </a>
           </div>
           <div className="form-group mt-3">
             <label>Username</label>
@@ -143,7 +147,7 @@ let [authMode, setAuthMode] = useState("signin")
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary" onClick={changeAuthMode}>
+            <button type="submit" className="btn btn-primary">
               Submit
             </button>
           </div>

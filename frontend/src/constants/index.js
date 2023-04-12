@@ -15,36 +15,38 @@
 
 // AWS instance:
 
-// export const API_URL = "http://34.221.117.152//api/";
-
-// export const SIGNUP_URL = "http://34.221.117.152//api/authentication/signup";
-
-// export const TOKEN_URL = "http://34.221.117.152//api/authentication/get-token";
-
-// export const BOOK_URL = 'http://34.221.117.152//api/api/book/';
-
-// export const REVIEW_URL = 'http://34.221.117.152//api/api/reviews/';
-
-// export const COMMENT_URL = 'http://34.221.117.152//api/api/comments/';
-
-
 // export const API_URL = "http://34.221.117.152/api/";
 
-// export const SIGNUP_URL = "http://34.221.117.152/authentication/signup";
+// export const SIGNUP_URL = "http://34.221.117.152/api/authentication/signup";
 
-// export const TOKEN_URL = "http://34.221.117.152/authentication/get-token";
+// export const TOKEN_URL = "http://34.221.117.152/api/authentication/get-token";
 
-// export const BOOK_URL = 'http://34.221.117.152/api/book/';
+// export const BOOK_URL = 'http://34.221.117.152/api/api/book/';
 
-// export const REVIEW_URL = 'http://34.221.117.152/api/reviews/';
+// export const REVIEW_URL = 'http://34.221.117.152/api/api/reviews/';
 
-export const TOKEN_URL = "http://localhost:8000/authentication/get-token";
-export const SIGNUP_URL = "http://localhost:8000/authentication/signup";
+// export const COMMENT_URL = 'http://34.221.117.152/api/api/comments/';
 
-export const BOOK_URL = 'http://localhost:8000/api/book/';
 
-export const REVIEW_URL = 'http://localhost:8000/api/reviews/';
+export const API_URL = "http://34.221.117.152/api/";
 
-export const COMMENT_URL = 'http://localhost:8000/api/comments/';
+export const SIGNUP_URL = "http://34.221.117.152/api/authentication/signup";
+
+export const TOKEN_URL = "http://34.221.117.152/api/authentication/get-token";
+
+export const BOOK_URL = 'http://34.221.117.152/api/api/book/';
+
+export const REVIEW_URL = 'http://34.221.117.152/api/api/reviews/';
+
+export const COMMENT_URL = 'http://34.221.117.152/api/api/comments/';
+
+// export const TOKEN_URL = "http://localhost:8000/authentication/get-token";
+// export const SIGNUP_URL = "http://localhost:8000/authentication/signup";
+
+// export const BOOK_URL = 'http://localhost:8000/api/book/';
+
+// export const REVIEW_URL = 'http://localhost:8000/api/reviews/';
+
+// export const COMMENT_URL = 'http://localhost:8000/api/comments/';
 
 
