@@ -3,6 +3,7 @@ import { useEffect,useState} from 'react';
 import {Link, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { REVIEW_URL } from '../constants';
 
 function ReviewPage() {
 
